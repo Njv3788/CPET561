@@ -44,7 +44,7 @@ architecture lights_arch of lightsWithNios is
 begin
 
   LEDR(9 downto 0) <= "1" & ledNios & led0;
-  led0             <= cntr(24);
+  led0             <= cntr(25);
   
   synchReset_proc : process (CLOCK2_50) begin
     if (rising_edge(CLOCK2_50)) then
