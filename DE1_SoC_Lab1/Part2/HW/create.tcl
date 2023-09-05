@@ -12,13 +12,10 @@ load_package flow
 project_new $project_name
 set_global_assignment -name FAMILY Cyclone
 set_global_assignment -name DEVICE 5CSEMA5F31C6 
-set_global_assignment -name TOP_LEVEL_ENTITY lightsNoNios
+set_global_assignment -name TOP_LEVEL_ENTITY lightsWithNios
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../output_files
 
-# 2] include your relative path files here
-set_global_assignment -name VHDL_FILE ../../src/"lightsWithNios"
-
-# 3] import pin assigment from file
+# 4] import pin assigment from file
 
 # Specify the path to the .qsf file
 set qsf_file_path ../DE1_SoC.qsf
@@ -44,7 +41,7 @@ while {[gets $qsf_file line] != -1} {
 # Close the .qsf file
 close $qsf_file
 
-execute_flow -compile
+#execute_flow -compile
 project_close
 
 

@@ -1,6 +1,10 @@
 # _hw.tcl file for nios_systyem
 package require -exact qsys 18.1
 
+file delete -force nios_system
+file delete -force nios_system.qsys
+file delete -force nios_system.sopinfo
+
 create_system nios_system
 # Instances and instance parameters
 # (disabled instances are intentionally culled)

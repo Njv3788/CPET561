@@ -7,6 +7,7 @@
 -- entire file and fix mistakes before running on your board. 
 -------------------------------------------------------------------------
 
+library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
@@ -45,8 +46,8 @@ begin
   LEDR(9 downto 0) <= "1" & ledNios & led0;
   led0             <= cntr(25);
   
-  synchReset_proc : process (CLOCK_50) begin
-    if (rising_edge(CLOCK_50)) then
+  synchReset_proc : process (CLOCK2_50) begin
+    if (rising_edge(CLOCK2_50)) then
       key0_d1 <= KEY(0);
       key0_d2 <= key0_d1;
       key0_d3 <= key0_d2;
@@ -54,8 +55,8 @@ begin
   end process synchReset_proc;
   reset_n <= key0_d3;
   
-  synchReset_proc : process (CLOCK_50) begin
-    if (rising_edge(CLOCK_50)) then
+  syncCntr_proc : process (CLOCK2_50) begin
+    if (rising_edge(CLOCK2_50)) then
       if (reset_n = '0') then
         cntr  <= "00" & x"000000";
         sw_d1 <= "00" & x"00";
@@ -66,12 +67,12 @@ begin
         sw_d2 <= sw_d1;
       end if;
     end if;
-  end process synchUserIn_proc;
+  end process syncCntr_proc;
 
   u0 : component nios_system
     port map (
-      clk_clk         => CLOCK_50, 
-      reset_reset     => reset_n,  
+      clk_clk         => CLOCK2_50, 
+      reset_reset_n     => reset_n,  
       switches_export => sw_d2(7 downto 0),
       leds_export     => ledNios 
     );
