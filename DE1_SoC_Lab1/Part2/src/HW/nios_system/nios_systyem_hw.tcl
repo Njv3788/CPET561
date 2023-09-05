@@ -208,7 +208,7 @@ add_instance switches altera_avalon_pio 18.1
 set_instance_parameter_value switches {bitClearingEdgeCapReg} {0}
 set_instance_parameter_value switches {bitModifyingOutReg} {0}
 set_instance_parameter_value switches {captureEdge} {0}
-set_instance_parameter_value switches {direction} {InOut}
+set_instance_parameter_value switches {direction} {Input}
 set_instance_parameter_value switches {edgeType} {RISING}
 set_instance_parameter_value switches {generateIRQ} {0}
 set_instance_parameter_value switches {irqType} {LEVEL}
@@ -247,7 +247,7 @@ add_connection clk_0.clk_reset sysid_qsys_0.reset reset
 
 add_connection nios2_gen2_0.data_master jtag_uart_0.avalon_jtag_slave avalon
 set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave baseAddress {0x00011020}
+set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave baseAddress {0x00011028}
 set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master leds.s1 avalon
@@ -272,12 +272,14 @@ set_connection_parameter_value nios2_gen2_0.data_master/switches.s1 defaultConne
 
 add_connection nios2_gen2_0.data_master sysid_qsys_0.control_slave avalon
 set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave baseAddress {0x0000}
+set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave baseAddress {0x00011020}
 set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave defaultConnection {0}
 
 add_connection nios2_gen2_0.debug_reset_request jtag_uart_0.reset reset
 
 add_connection nios2_gen2_0.debug_reset_request leds.reset reset
+
+add_connection nios2_gen2_0.debug_reset_request nios2_gen2_0.reset reset
 
 add_connection nios2_gen2_0.debug_reset_request onchip_memory2_0.reset1 reset
 
