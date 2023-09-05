@@ -11,15 +11,16 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
-ENTITY lights is
+ENTITY lightsWithNios is
   port (
     CLOCK2_50 : in  std_logic;
     KEY       : in  std_logic_vector(3 downto 0);
     SW        : in  std_logic_vector(9 downto 0);
-    LEDR      : out std_logic_vector(9 downto 0));
-end entity light;
+    LEDR      : out std_logic_vector(9 downto 0)
+    );
+end entity lightsWithNios;
 
-architecture lights_arch of lights is
+architecture lights_arch of lightsWithNios is
   signal led0 : std_logic;
   signal cntr : std_logic_vector(25 downto 0);
   signal ledNios : std_logic_vector(7 downto 0);
@@ -42,7 +43,7 @@ architecture lights_arch of lights is
 begin
 
   LEDR(9 downto 0) <= "1" & ledNios & led0;
-  led0             <= cntr(24);
+  led0             <= cntr(25);
   
   synchReset_proc : process (CLOCK_50) begin
     if (rising_edge(CLOCK_50)) then
@@ -51,6 +52,7 @@ begin
       key0_d3 <= key0_d2;
     end if;
   end process synchReset_proc;
+  reset_n <= key0_d3;
   
   synchReset_proc : process (CLOCK_50) begin
     if (rising_edge(CLOCK_50)) then

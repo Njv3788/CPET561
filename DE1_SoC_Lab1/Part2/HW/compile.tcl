@@ -2,7 +2,7 @@
 # Quartus II compile script for DE1-SoC board
 
 # 1] name your project here
-set project_name "lightsNoNios"
+set project_name "lightsWithNios"
 
 file delete -force project
 file delete -force output_files
@@ -16,7 +16,7 @@ set_global_assignment -name TOP_LEVEL_ENTITY lightsNoNios
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../output_files
 
 # 2] include your relative path files here
-set_global_assignment -name VHDL_FILE ../../src/lightsNoNios.vhd
+set_global_assignment -name VHDL_FILE ../../src/"lightsWithNios"
 
 # 3] import pin assigment from file
 
