@@ -1,5 +1,5 @@
 
-module nios_system (
+module unsaved (
 	clk_clk,
 	reset_reset_n,
 	switches_export,
