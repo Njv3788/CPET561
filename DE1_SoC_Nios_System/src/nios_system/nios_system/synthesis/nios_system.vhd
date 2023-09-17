@@ -10,6 +10,7 @@ entity nios_system is
 	port (
 		clk_clk         : in  std_logic                    := '0';             --      clk.clk
 		hex_0_export    : out std_logic_vector(6 downto 0);                    --    hex_0.export
+		keys_export     : in  std_logic_vector(3 downto 0) := (others => '0'); --     keys.export
 		reset_reset_n   : in  std_logic                    := '0';             --    reset.reset_n
 		switches_export : in  std_logic_vector(7 downto 0) := (others => '0')  -- switches.export
 	);
@@ -43,6 +44,16 @@ architecture rtl of nios_system is
 			av_irq         : out std_logic                                         -- irq
 		);
 	end component nios_system_jtag_uart_0;
+
+	component nios_system_keys is
+		port (
+			clk      : in  std_logic                     := 'X';             -- clk
+			reset_n  : in  std_logic                     := 'X';             -- reset_n
+			address  : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			readdata : out std_logic_vector(31 downto 0);                    -- readdata
+			in_port  : in  std_logic_vector(3 downto 0)  := (others => 'X')  -- export
+		);
+	end component nios_system_keys;
 
 	component nios_system_nios2_gen2_0 is
 		port (
@@ -138,6 +149,8 @@ architecture rtl of nios_system is
 			jtag_uart_0_avalon_jtag_slave_writedata        : out std_logic_vector(31 downto 0);                    -- writedata
 			jtag_uart_0_avalon_jtag_slave_waitrequest      : in  std_logic                     := 'X';             -- waitrequest
 			jtag_uart_0_avalon_jtag_slave_chipselect       : out std_logic;                                        -- chipselect
+			keys_s1_address                                : out std_logic_vector(1 downto 0);                     -- address
+			keys_s1_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			nios2_gen2_0_debug_mem_slave_address           : out std_logic_vector(8 downto 0);                     -- address
 			nios2_gen2_0_debug_mem_slave_write             : out std_logic;                                        -- write
 			nios2_gen2_0_debug_mem_slave_read              : out std_logic;                                        -- read
@@ -278,6 +291,8 @@ architecture rtl of nios_system is
 	signal mm_interconnect_0_hex_0_s1_address                              : std_logic_vector(1 downto 0);  -- mm_interconnect_0:hex_0_s1_address -> hex_0:address
 	signal mm_interconnect_0_hex_0_s1_write                                : std_logic;                     -- mm_interconnect_0:hex_0_s1_write -> mm_interconnect_0_hex_0_s1_write:in
 	signal mm_interconnect_0_hex_0_s1_writedata                            : std_logic_vector(31 downto 0); -- mm_interconnect_0:hex_0_s1_writedata -> hex_0:writedata
+	signal mm_interconnect_0_keys_s1_readdata                              : std_logic_vector(31 downto 0); -- keys:readdata -> mm_interconnect_0:keys_s1_readdata
+	signal mm_interconnect_0_keys_s1_address                               : std_logic_vector(1 downto 0);  -- mm_interconnect_0:keys_s1_address -> keys:address
 	signal irq_mapper_receiver0_irq                                        : std_logic;                     -- jtag_uart_0:av_irq -> irq_mapper:receiver0_irq
 	signal nios2_gen2_0_irq_irq                                            : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> nios2_gen2_0:irq
 	signal rst_controller_reset_out_reset                                  : std_logic;                     -- rst_controller:reset_out -> [irq_mapper:reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, onchip_memory2_0:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
@@ -286,7 +301,7 @@ architecture rtl of nios_system is
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read_ports_inv  : std_logic;                     -- mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read:inv -> jtag_uart_0:av_read_n
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write_ports_inv : std_logic;                     -- mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write:inv -> jtag_uart_0:av_write_n
 	signal mm_interconnect_0_hex_0_s1_write_ports_inv                      : std_logic;                     -- mm_interconnect_0_hex_0_s1_write:inv -> hex_0:write_n
-	signal rst_controller_reset_out_reset_ports_inv                        : std_logic;                     -- rst_controller_reset_out_reset:inv -> [hex_0:reset_n, jtag_uart_0:rst_n, nios2_gen2_0:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
+	signal rst_controller_reset_out_reset_ports_inv                        : std_logic;                     -- rst_controller_reset_out_reset:inv -> [hex_0:reset_n, jtag_uart_0:rst_n, keys:reset_n, nios2_gen2_0:reset_n, switches:reset_n, sysid_qsys_0:reset_n]
 
 begin
 
@@ -314,6 +329,15 @@ begin
 			av_writedata   => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata,       --                  .writedata
 			av_waitrequest => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_waitrequest,     --                  .waitrequest
 			av_irq         => irq_mapper_receiver0_irq                                         --               irq.irq
+		);
+
+	keys : component nios_system_keys
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_keys_s1_address,        --                  s1.address
+			readdata => mm_interconnect_0_keys_s1_readdata,       --                    .readdata
+			in_port  => keys_export                               -- external_connection.export
 		);
 
 	nios2_gen2_0 : component nios_system_nios2_gen2_0
@@ -406,6 +430,8 @@ begin
 			jtag_uart_0_avalon_jtag_slave_writedata        => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata,   --                                         .writedata
 			jtag_uart_0_avalon_jtag_slave_waitrequest      => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_waitrequest, --                                         .waitrequest
 			jtag_uart_0_avalon_jtag_slave_chipselect       => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_chipselect,  --                                         .chipselect
+			keys_s1_address                                => mm_interconnect_0_keys_s1_address,                           --                                  keys_s1.address
+			keys_s1_readdata                               => mm_interconnect_0_keys_s1_readdata,                          --                                         .readdata
 			nios2_gen2_0_debug_mem_slave_address           => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_address,      --             nios2_gen2_0_debug_mem_slave.address
 			nios2_gen2_0_debug_mem_slave_write             => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_write,        --                                         .write
 			nios2_gen2_0_debug_mem_slave_read              => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_read,         --                                         .read

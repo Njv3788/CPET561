@@ -33,9 +33,10 @@ architecture rtl of lab2_top is
   -- signal declarations
  
   signal reset_n : std_logic;
-  signal key0_d1 : std_logic;
-  signal key0_d2 : std_logic;
-  signal key0_d3 : std_logic;
+  signal key_d1 : std_logic_vector(3 downto 0);
+  signal key_d2 : std_logic_vector(3 downto 0);
+  signal key_d3 : std_logic_vector(3 downto 0);
+  signal key_s  : std_logic_vector(3 downto 0); 
   signal cntr : std_logic_vector(25 downto 0);
   
   -- nios_system component
@@ -44,22 +45,23 @@ architecture rtl of lab2_top is
       clk_clk         : in  std_logic                    := 'X';             -- clk
       hex_0_export    : out std_logic_vector(6 downto 0);                    -- export
       reset_reset_n   : in  std_logic                    := 'X';             -- reset_n
-      switches_export : in  std_logic_vector(7 downto 0) := (others => 'X')  -- export
+      switches_export : in  std_logic_vector(7 downto 0) := (others => 'X'); -- export
+      keys_export     : in  std_logic_vector(3 downto 0) := (others => 'X')  -- export
     );
   end component nios_system;
-  
   
 begin
   
   ----- Syncronize the reset
   synchReset_proc : process (CLOCK_50) begin
     if (rising_edge(CLOCK_50)) then
-      key0_d1 <= KEY(0);
-      key0_d2 <= key0_d1;
-      key0_d3 <= key0_d2;
+      key_d1 <= KEY;
+      key_d2 <= key_d1;
+      key_d3 <= key_d2;
     end if;
   end process synchReset_proc;
-  reset_n <= key0_d3;
+  reset_n <= key_d3(0);
+  key_s <= key_d3(3 downto 1) & '0';
   
   --- heartbeat counter --------
   counter_proc : process (CLOCK_50) begin
@@ -80,7 +82,8 @@ begin
       clk_clk         => CLOCK_50,          -- clk.clk
       reset_reset_n   => reset_n,           -- reset.reset_n
       hex_0_export    => HEX0(6 downto 0),  -- leds.export
-      switches_export => SW(7 downto 0)     -- switches.export
+      switches_export => SW(7 downto 0),     -- switches.export
+      keys_export     => key_s
     );
     
 end architecture rtl;

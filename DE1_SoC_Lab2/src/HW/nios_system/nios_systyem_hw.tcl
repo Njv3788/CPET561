@@ -39,6 +39,19 @@ set_instance_parameter_value jtag_uart_0 {useRelativePathForSimFile} {0}
 set_instance_parameter_value jtag_uart_0 {writeBufferDepth} {64}
 set_instance_parameter_value jtag_uart_0 {writeIRQThreshold} {8}
 
+add_instance keys altera_avalon_pio 18.1
+set_instance_parameter_value keys {bitClearingEdgeCapReg} {0}
+set_instance_parameter_value keys {bitModifyingOutReg} {0}
+set_instance_parameter_value keys {captureEdge} {0}
+set_instance_parameter_value keys {direction} {Input}
+set_instance_parameter_value keys {edgeType} {RISING}
+set_instance_parameter_value keys {generateIRQ} {0}
+set_instance_parameter_value keys {irqType} {LEVEL}
+set_instance_parameter_value keys {resetValue} {0.0}
+set_instance_parameter_value keys {simDoTestBenchWiring} {0}
+set_instance_parameter_value keys {simDrivenValue} {0.0}
+set_instance_parameter_value keys {width} {4}
+
 add_instance nios2_gen2_0 altera_nios2_gen2 18.1
 set_instance_parameter_value nios2_gen2_0 {bht_ramBlockType} {Automatic}
 set_instance_parameter_value nios2_gen2_0 {breakOffset} {32}
@@ -225,6 +238,8 @@ add_interface clk clock sink
 set_interface_property clk EXPORT_OF clk_0.clk_in
 add_interface hex_0 conduit end
 set_interface_property hex_0 EXPORT_OF hex_0.external_connection
+add_interface keys conduit end
+set_interface_property keys EXPORT_OF keys.external_connection
 add_interface reset reset sink
 set_interface_property reset EXPORT_OF clk_0.clk_in_reset
 add_interface switches conduit end
@@ -234,6 +249,8 @@ set_interface_property switches EXPORT_OF switches.external_connection
 add_connection clk_0.clk hex_0.clk
 
 add_connection clk_0.clk jtag_uart_0.clk
+
+add_connection clk_0.clk keys.clk
 
 add_connection clk_0.clk nios2_gen2_0.clk
 
@@ -245,13 +262,18 @@ add_connection clk_0.clk sysid_qsys_0.clk
 
 add_connection nios2_gen2_0.data_master hex_0.s1
 set_connection_parameter_value nios2_gen2_0.data_master/hex_0.s1 arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/hex_0.s1 baseAddress {0x00011000}
+set_connection_parameter_value nios2_gen2_0.data_master/hex_0.s1 baseAddress {0x00011010}
 set_connection_parameter_value nios2_gen2_0.data_master/hex_0.s1 defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master jtag_uart_0.avalon_jtag_slave
 set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave baseAddress {0x00011028}
+set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave baseAddress {0x00011038}
 set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave defaultConnection {0}
+
+add_connection nios2_gen2_0.data_master keys.s1
+set_connection_parameter_value nios2_gen2_0.data_master/keys.s1 arbitrationPriority {1}
+set_connection_parameter_value nios2_gen2_0.data_master/keys.s1 baseAddress {0x00011000}
+set_connection_parameter_value nios2_gen2_0.data_master/keys.s1 defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master nios2_gen2_0.debug_mem_slave
 set_connection_parameter_value nios2_gen2_0.data_master/nios2_gen2_0.debug_mem_slave arbitrationPriority {1}
@@ -265,17 +287,19 @@ set_connection_parameter_value nios2_gen2_0.data_master/onchip_memory2_0.s1 defa
 
 add_connection nios2_gen2_0.data_master switches.s1
 set_connection_parameter_value nios2_gen2_0.data_master/switches.s1 arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/switches.s1 baseAddress {0x00011010}
+set_connection_parameter_value nios2_gen2_0.data_master/switches.s1 baseAddress {0x00011020}
 set_connection_parameter_value nios2_gen2_0.data_master/switches.s1 defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master sysid_qsys_0.control_slave
 set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave baseAddress {0x00011020}
+set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave baseAddress {0x00011030}
 set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave defaultConnection {0}
 
 add_connection nios2_gen2_0.debug_reset_request hex_0.reset
 
 add_connection nios2_gen2_0.debug_reset_request jtag_uart_0.reset
+
+add_connection nios2_gen2_0.debug_reset_request keys.reset
 
 add_connection nios2_gen2_0.debug_reset_request nios2_gen2_0.reset
 

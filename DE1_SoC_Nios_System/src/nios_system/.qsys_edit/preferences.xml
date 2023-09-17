@@ -8,7 +8,7 @@
   </columns>
  </systemtable>
  <library
-   expandedCategories="Library/Basic Functions,Library,Project,Library/Processors and Peripherals,Library/Basic Functions/Simulation; Debug and Verification/Debug and Performance,Library/Basic Functions/Simulation; Debug and Verification" />
- <window width="1936" height="1056" x="-8" y="-8" />
+   expandedCategories="Library/Processors and Peripherals/Inter-Process Communication,Library/Processors and Peripherals,Library/Processors and Peripherals/Co-Processors,Project,Library,Library/Processors and Peripherals/Co-Processors/Nios II Custom Instructions,Library/Qsys Interconnect,Library/Processors and Peripherals/Peripherals" />
+ <window width="1368" height="1047" x="-8" y="-8" />
  <generation synthesis="VHDL" />
 </preferences>
