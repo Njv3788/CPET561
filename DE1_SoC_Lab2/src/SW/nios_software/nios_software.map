@@ -179,7 +179,7 @@ LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nio
                 0x0000000000008230                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
                 0x0000000000008020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
 
-.text           0x0000000000008230     0x2314
+.text           0x0000000000008230     0x2334
                 [!provide]                        PROVIDE (stext, ABSOLUTE (.))
  *(.interp)
  *(.hash)
@@ -226,111 +226,111 @@ LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nio
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text          0x0000000000008230       0x3c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp//obj/HAL/src/crt0.o
                 0x0000000000008230                _start
- .text          0x000000000000826c       0xa0 obj/default/lab2_main.o
+ .text          0x000000000000826c       0xc0 obj/default/lab2_main.o
                 0x000000000000826c                main
- .text          0x000000000000830c       0xec C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_load.o)
-                0x0000000000008374                alt_load
- .text          0x00000000000083f8       0x7c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
-                0x00000000000083f8                alt_main
- .text          0x0000000000008474       0xb8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
-                0x00000000000084a8                alt_irq_init
-                0x00000000000084e0                alt_sys_init
- .text          0x000000000000852c      0x164 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
-                0x000000000000852c                altera_avalon_jtag_uart_read_fd
-                0x000000000000858c                altera_avalon_jtag_uart_write_fd
-                0x00000000000085ec                altera_avalon_jtag_uart_close_fd
-                0x000000000000863c                altera_avalon_jtag_uart_ioctl_fd
- .text          0x0000000000008690      0x3d4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
-                0x0000000000008690                altera_avalon_jtag_uart_init
-                0x00000000000089fc                altera_avalon_jtag_uart_close
- .text          0x0000000000008a64       0xf0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
-                0x0000000000008a64                altera_avalon_jtag_uart_ioctl
- .text          0x0000000000008b54      0x21c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
-                0x0000000000008b54                altera_avalon_jtag_uart_read
- .text          0x0000000000008d70      0x224 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                0x0000000000008d70                altera_avalon_jtag_uart_write
- .text          0x0000000000008f94      0x12c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_alarm_start.o)
-                0x0000000000008f94                alt_alarm_start
- .text          0x00000000000090c0      0x114 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_close.o)
-                0x00000000000090fc                close
- .text          0x00000000000091d4       0x20 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
-                0x00000000000091d4                alt_dcache_flush_all
- .text          0x00000000000091f4       0x2c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
- .text          0x0000000000009220       0xe0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
-                0x000000000000925c                alt_dev_llist_insert
- .text          0x0000000000009300       0x60 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_ctors.o)
-                0x0000000000009300                _do_ctors
- .text          0x0000000000009360       0x60 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_dtors.o)
-                0x0000000000009360                _do_dtors
- .text          0x00000000000093c0        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
- .text          0x00000000000093c0       0x20 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
-                0x00000000000093c0                alt_icache_flush_all
- .text          0x00000000000093e0      0x1b0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic.o)
-                0x00000000000093e0                alt_ic_isr_register
-                0x0000000000009430                alt_ic_irq_enable
-                0x00000000000094b8                alt_ic_irq_disable
-                0x0000000000009544                alt_ic_irq_enabled
- .text          0x0000000000009590       0xf0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
-                0x0000000000009590                alt_iic_isr_register
- .text          0x0000000000009680      0x160 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_io_redirect.o)
-                0x0000000000009764                alt_io_redirect
- .text          0x00000000000097e0        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .text          0x00000000000097e0        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .text          0x00000000000097e0        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .text          0x00000000000097e0      0x284 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_open.o)
-                0x0000000000009908                open
- .text          0x0000000000009a64       0x84 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_release_fd.o)
-                0x0000000000009a64                alt_release_fd
- .text          0x0000000000009ae8      0x1a4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
-                0x0000000000009ae8                alt_alarm_stop
-                0x0000000000009b84                alt_tick
- .text          0x0000000000009c8c       0x24 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
-                0x0000000000009c8c                altera_nios2_gen2_irq_init
- .text          0x0000000000009cb0        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .text          0x0000000000009cb0       0x90 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_dev.o)
-                0x0000000000009cb0                alt_find_dev
- .text          0x0000000000009d40      0x108 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_file.o)
-                0x0000000000009d40                alt_find_file
- .text          0x0000000000009e48       0xc4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_get_fd.o)
-                0x0000000000009e48                alt_get_fd
- .text          0x0000000000009f0c       0x9c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
-                0x0000000000009f0c                alt_exception_cause_generated_bad_addr
- .text          0x0000000000009fa8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
- .text.atexit   0x0000000000009fa8       0x14 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
-                0x0000000000009fa8                atexit
- .text          0x0000000000009fbc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
- .text.exit     0x0000000000009fbc       0x38 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
-                0x0000000000009fbc                exit
- .text          0x0000000000009ff4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
- .text          0x0000000000009ff4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
- .text          0x0000000000009ff4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
- .text.memcmp   0x0000000000009ff4       0x7c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
-                0x0000000000009ff4                memcmp
- .text          0x000000000000a070        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
- .text.memcpy   0x000000000000a070      0x148 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
-                0x000000000000a070                memcpy
- .text          0x000000000000a1b8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
- .text.strlen   0x000000000000a1b8       0x98 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
-                0x000000000000a1b8                strlen
- .text          0x000000000000a250        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
+ .text          0x000000000000832c       0xec C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_load.o)
+                0x0000000000008394                alt_load
+ .text          0x0000000000008418       0x7c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000008418                alt_main
+ .text          0x0000000000008494       0xb8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x00000000000084c8                alt_irq_init
+                0x0000000000008500                alt_sys_init
+ .text          0x000000000000854c      0x164 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x000000000000854c                altera_avalon_jtag_uart_read_fd
+                0x00000000000085ac                altera_avalon_jtag_uart_write_fd
+                0x000000000000860c                altera_avalon_jtag_uart_close_fd
+                0x000000000000865c                altera_avalon_jtag_uart_ioctl_fd
+ .text          0x00000000000086b0      0x3d4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+                0x00000000000086b0                altera_avalon_jtag_uart_init
+                0x0000000000008a1c                altera_avalon_jtag_uart_close
+ .text          0x0000000000008a84       0xf0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+                0x0000000000008a84                altera_avalon_jtag_uart_ioctl
+ .text          0x0000000000008b74      0x21c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x0000000000008b74                altera_avalon_jtag_uart_read
+ .text          0x0000000000008d90      0x224 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0000000000008d90                altera_avalon_jtag_uart_write
+ .text          0x0000000000008fb4      0x12c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_alarm_start.o)
+                0x0000000000008fb4                alt_alarm_start
+ .text          0x00000000000090e0      0x114 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_close.o)
+                0x000000000000911c                close
+ .text          0x00000000000091f4       0x20 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x00000000000091f4                alt_dcache_flush_all
+ .text          0x0000000000009214       0x2c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
+ .text          0x0000000000009240       0xe0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+                0x000000000000927c                alt_dev_llist_insert
+ .text          0x0000000000009320       0x60 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_ctors.o)
+                0x0000000000009320                _do_ctors
+ .text          0x0000000000009380       0x60 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_dtors.o)
+                0x0000000000009380                _do_dtors
+ .text          0x00000000000093e0        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
+ .text          0x00000000000093e0       0x20 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x00000000000093e0                alt_icache_flush_all
+ .text          0x0000000000009400      0x1b0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic.o)
+                0x0000000000009400                alt_ic_isr_register
+                0x0000000000009450                alt_ic_irq_enable
+                0x00000000000094d8                alt_ic_irq_disable
+                0x0000000000009564                alt_ic_irq_enabled
+ .text          0x00000000000095b0       0xf0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+                0x00000000000095b0                alt_iic_isr_register
+ .text          0x00000000000096a0      0x160 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_io_redirect.o)
+                0x0000000000009784                alt_io_redirect
+ .text          0x0000000000009800        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .text          0x0000000000009800        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .text          0x0000000000009800        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .text          0x0000000000009800      0x284 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_open.o)
+                0x0000000000009928                open
+ .text          0x0000000000009a84       0x84 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_release_fd.o)
+                0x0000000000009a84                alt_release_fd
+ .text          0x0000000000009b08      0x1a4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
+                0x0000000000009b08                alt_alarm_stop
+                0x0000000000009ba4                alt_tick
+ .text          0x0000000000009cac       0x24 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x0000000000009cac                altera_nios2_gen2_irq_init
+ .text          0x0000000000009cd0        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .text          0x0000000000009cd0       0x90 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_dev.o)
+                0x0000000000009cd0                alt_find_dev
+ .text          0x0000000000009d60      0x108 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_file.o)
+                0x0000000000009d60                alt_find_file
+ .text          0x0000000000009e68       0xc4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_get_fd.o)
+                0x0000000000009e68                alt_get_fd
+ .text          0x0000000000009f2c       0x9c C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x0000000000009f2c                alt_exception_cause_generated_bad_addr
+ .text          0x0000000000009fc8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
+ .text.atexit   0x0000000000009fc8       0x14 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
+                0x0000000000009fc8                atexit
+ .text          0x0000000000009fdc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
+ .text.exit     0x0000000000009fdc       0x38 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
+                0x0000000000009fdc                exit
+ .text          0x000000000000a014        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
+ .text          0x000000000000a014        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
+ .text          0x000000000000a014        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
+ .text.memcmp   0x000000000000a014       0x7c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
+                0x000000000000a014                memcmp
+ .text          0x000000000000a090        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
+ .text.memcpy   0x000000000000a090      0x148 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
+                0x000000000000a090                memcpy
+ .text          0x000000000000a1d8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
+ .text.strlen   0x000000000000a1d8       0x98 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
+                0x000000000000a1d8                strlen
+ .text          0x000000000000a270        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
  .text.__register_exitproc
-                0x000000000000a250      0x118 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
-                0x000000000000a250                __register_exitproc
- .text          0x000000000000a368        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
+                0x000000000000a270      0x118 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
+                0x000000000000a270                __register_exitproc
+ .text          0x000000000000a388        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x000000000000a368      0x180 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
-                0x000000000000a368                __call_exitprocs
- .text          0x000000000000a4e8       0x28 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
-                0x000000000000a4e8                __mulsi3
- .text          0x000000000000a510       0x34 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
-                0x000000000000a510                _exit
+                0x000000000000a388      0x180 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
+                0x000000000000a388                __call_exitprocs
+ .text          0x000000000000a508       0x28 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+                0x000000000000a508                __mulsi3
+ .text          0x000000000000a530       0x34 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
+                0x000000000000a530                _exit
  *(.gnu.warning.*)
  *(.fini)
                 [!provide]                        PROVIDE (__etext, ABSOLUTE (.))
                 [!provide]                        PROVIDE (_etext, ABSOLUTE (.))
                 [!provide]                        PROVIDE (etext, ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x000000000000a544                . = ALIGN (0x4)
+                0x000000000000a564                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__preinit_array_start, ABSOLUTE (.))
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end, ABSOLUTE (.))
@@ -343,203 +343,203 @@ LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nio
  *(.eh_frame)
  *(.gcc_except_table .gcc_except_table.*)
  *(.dynamic)
-                0x000000000000a544                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+                0x000000000000a564                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
  *(.ctors)
  *(SORT(.ctors.*))
-                0x000000000000a544                PROVIDE (__CTOR_END__, ABSOLUTE (.))
-                0x000000000000a544                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+                0x000000000000a564                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x000000000000a564                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
  *(.dtors)
  *(SORT(.dtors.*))
-                0x000000000000a544                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+                0x000000000000a564                PROVIDE (__DTOR_END__, ABSOLUTE (.))
  *(.jcr)
-                0x000000000000a544                . = ALIGN (0x4)
+                0x000000000000a564                . = ALIGN (0x4)
 
-.rodata         0x000000000000a544       0x38
-                0x000000000000a544                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
-                0x000000000000a544                . = ALIGN (0x4)
+.rodata         0x000000000000a564       0x38
+                0x000000000000a564                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x000000000000a564                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x000000000000a544       0x11 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
- *fill*         0x000000000000a555        0x3 
- .rodata        0x000000000000a558       0x11 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
- *fill*         0x000000000000a569        0x3 
- .rodata        0x000000000000a56c        0xa C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
- *fill*         0x000000000000a576        0x2 
+ .rodata        0x000000000000a564       0x11 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
+ *fill*         0x000000000000a575        0x3 
+ .rodata        0x000000000000a578       0x11 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
+ *fill*         0x000000000000a589        0x3 
+ .rodata        0x000000000000a58c        0xa C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
+ *fill*         0x000000000000a596        0x2 
  .rodata.str1.4
-                0x000000000000a578        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
+                0x000000000000a598        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
                                           0x2 (size before relaxing)
  *(.rodata1)
-                0x000000000000a57c                . = ALIGN (0x4)
-                0x000000000000a57c                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
-                0x000000000000a544                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+                0x000000000000a59c                . = ALIGN (0x4)
+                0x000000000000a59c                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x000000000000a564                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
 
-.rwdata         0x000000000000a57c     0x1658 load address 0x000000000000bbd4
-                0x000000000000a57c                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
-                0x000000000000a57c                . = ALIGN (0x4)
+.rwdata         0x000000000000a59c     0x1658 load address 0x000000000000bbf4
+                0x000000000000a59c                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x000000000000a59c                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x000000000000a57c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp//obj/HAL/src/crt0.o
- .data          0x000000000000a57c        0x0 obj/default/lab2_main.o
- .data          0x000000000000a57c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_load.o)
- .data          0x000000000000a57c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
- .data          0x000000000000a57c     0x1060 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
- .data          0x000000000000b5dc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .data          0x000000000000b5dc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .data          0x000000000000b5dc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .data          0x000000000000b5dc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .data          0x000000000000b5dc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .data          0x000000000000b5dc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .data          0x000000000000b5dc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_close.o)
- .data          0x000000000000b5dc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .data          0x000000000000b5dc      0x1a8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
-                0x000000000000b5dc                alt_dev_null
-                0x000000000000b604                alt_fd_list
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_open.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_release_fd.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_dev.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_file.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_get_fd.o)
- .data          0x000000000000b784        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .data          0x000000000000b784        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
- .data          0x000000000000b784        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
- .data          0x000000000000b784        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
+ .data          0x000000000000a59c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp//obj/HAL/src/crt0.o
+ .data          0x000000000000a59c        0x0 obj/default/lab2_main.o
+ .data          0x000000000000a59c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_load.o)
+ .data          0x000000000000a59c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
+ .data          0x000000000000a59c     0x1060 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .data          0x000000000000b5fc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .data          0x000000000000b5fc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .data          0x000000000000b5fc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .data          0x000000000000b5fc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x000000000000b5fc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x000000000000b5fc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .data          0x000000000000b5fc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_close.o)
+ .data          0x000000000000b5fc        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x000000000000b5fc      0x1a8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
+                0x000000000000b5fc                alt_dev_null
+                0x000000000000b624                alt_fd_list
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_open.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_file.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .data          0x000000000000b7a4        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .data          0x000000000000b7a4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
+ .data          0x000000000000b7a4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
+ .data          0x000000000000b7a4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
  .data.impure_data
-                0x000000000000b784      0x424 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
- .data          0x000000000000bba8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
- .data          0x000000000000bba8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
- .data          0x000000000000bba8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
- .data          0x000000000000bba8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
- .data          0x000000000000bba8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
- .data          0x000000000000bba8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
- .data          0x000000000000bba8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
- .data          0x000000000000bba8        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
-                0x0000000000013ba8                _gp = ABSOLUTE ((. + 0x8000))
+                0x000000000000b7a4      0x424 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
+ .data          0x000000000000bbc8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
+ .data          0x000000000000bbc8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
+ .data          0x000000000000bbc8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
+ .data          0x000000000000bbc8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
+ .data          0x000000000000bbc8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
+ .data          0x000000000000bbc8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
+ .data          0x000000000000bbc8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .data          0x000000000000bbc8        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
+                0x0000000000013bc8                _gp = ABSOLUTE ((. + 0x8000))
                 [!provide]                        PROVIDE (gp, _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x000000000000bba8       0x14 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
-                0x000000000000bba8                alt_fs_list
-                0x000000000000bbb0                alt_dev_list
-                0x000000000000bbb8                alt_max_fd
- .sdata         0x000000000000bbbc        0x4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
-                0x000000000000bbbc                alt_errno
- .sdata         0x000000000000bbc0        0x4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
-                0x000000000000bbc0                alt_priority_mask
- .sdata         0x000000000000bbc4        0x8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
-                0x000000000000bbc4                alt_alarm_list
+ .sdata         0x000000000000bbc8       0x14 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
+                0x000000000000bbc8                alt_fs_list
+                0x000000000000bbd0                alt_dev_list
+                0x000000000000bbd8                alt_max_fd
+ .sdata         0x000000000000bbdc        0x4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
+                0x000000000000bbdc                alt_errno
+ .sdata         0x000000000000bbe0        0x4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x000000000000bbe0                alt_priority_mask
+ .sdata         0x000000000000bbe4        0x8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
+                0x000000000000bbe4                alt_alarm_list
  .sdata._global_impure_ptr
-                0x000000000000bbcc        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
-                0x000000000000bbcc                _global_impure_ptr
+                0x000000000000bbec        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
+                0x000000000000bbec                _global_impure_ptr
  .sdata._impure_ptr
-                0x000000000000bbd0        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
-                0x000000000000bbd0                _impure_ptr
+                0x000000000000bbf0        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
+                0x000000000000bbf0                _impure_ptr
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x000000000000bbd4                . = ALIGN (0x4)
-                0x000000000000bbd4                _edata = ABSOLUTE (.)
+                0x000000000000bbf4                . = ALIGN (0x4)
+                0x000000000000bbf4                _edata = ABSOLUTE (.)
                 [!provide]                        PROVIDE (edata, ABSOLUTE (.))
-                0x000000000000bbd4                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
-                0x000000000000bbd4                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+                0x000000000000bbf4                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x000000000000bbf4                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
 
-.bss            0x000000000000d22c      0x120
-                0x000000000000d22c                __bss_start = ABSOLUTE (.)
+.bss            0x000000000000d24c      0x120
+                0x000000000000d24c                __bss_start = ABSOLUTE (.)
                 [!provide]                        PROVIDE (__sbss_start, ABSOLUTE (.))
                 [!provide]                        PROVIDE (___sbss_start, ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x000000000000d22c        0xc C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
-                0x000000000000d22c                alt_argc
-                0x000000000000d230                alt_argv
-                0x000000000000d234                alt_envp
- .sbss          0x000000000000d238        0x4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
-                0x000000000000d238                alt_irq_active
- .sbss          0x000000000000d23c        0x8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
-                0x000000000000d23c                _alt_tick_rate
-                0x000000000000d240                _alt_nticks
- .sbss          0x000000000000d244        0x4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
-                0x000000000000d244                alt_instruction_exception_handler
- .sbss          0x000000000000d248        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
-                0x000000000000d248                errno
+ .sbss          0x000000000000d24c        0xc C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
+                0x000000000000d24c                alt_argc
+                0x000000000000d250                alt_argv
+                0x000000000000d254                alt_envp
+ .sbss          0x000000000000d258        0x4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x000000000000d258                alt_irq_active
+ .sbss          0x000000000000d25c        0x8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
+                0x000000000000d25c                _alt_tick_rate
+                0x000000000000d260                _alt_nticks
+ .sbss          0x000000000000d264        0x4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x000000000000d264                alt_instruction_exception_handler
+ .sbss          0x000000000000d268        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
+                0x000000000000d268                errno
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
                 [!provide]                        PROVIDE (__sbss_end, ABSOLUTE (.))
                 [!provide]                        PROVIDE (___sbss_end, ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp//obj/HAL/src/crt0.o
- .bss           0x000000000000d24c        0x0 obj/default/lab2_main.o
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_load.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_close.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_open.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_release_fd.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_dev.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_file.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_get_fd.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
- .bss           0x000000000000d24c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
- .bss           0x000000000000d24c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp//obj/HAL/src/crt0.o
+ .bss           0x000000000000d26c        0x0 obj/default/lab2_main.o
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_load.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_close.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_open.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_file.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
+ .bss           0x000000000000d26c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .bss           0x000000000000d26c        0x0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
  *(COMMON)
- COMMON         0x000000000000d24c      0x100 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
-                0x000000000000d24c                alt_irq
-                0x000000000000d34c                . = ALIGN (0x4)
-                0x000000000000d34c                __bss_end = ABSOLUTE (.)
+ COMMON         0x000000000000d26c      0x100 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                0x000000000000d26c                alt_irq
+                0x000000000000d36c                . = ALIGN (0x4)
+                0x000000000000d36c                __bss_end = ABSOLUTE (.)
 
 .onchip_memory2_0
-                0x000000000000d34c        0x0
+                0x000000000000d36c        0x0
                 [!provide]                        PROVIDE (_alt_partition_onchip_memory2_0_start, ABSOLUTE (.))
  *(.onchip_memory2_0 .onchip_memory2_0. onchip_memory2_0.*)
-                0x000000000000d34c                . = ALIGN (0x4)
+                0x000000000000d36c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_alt_partition_onchip_memory2_0_end, ABSOLUTE (.))
-                0x000000000000d34c                _end = ABSOLUTE (.)
-                0x000000000000d34c                end = ABSOLUTE (.)
-                0x000000000000d34c                __alt_stack_base = ABSOLUTE (.)
+                0x000000000000d36c                _end = ABSOLUTE (.)
+                0x000000000000d36c                end = ABSOLUTE (.)
+                0x000000000000d36c                __alt_stack_base = ABSOLUTE (.)
                 [!provide]                        PROVIDE (_alt_partition_onchip_memory2_0_load_addr, LOADADDR (.onchip_memory2_0))
 
 .stab
@@ -809,53 +809,53 @@ LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nio
  .debug_abbrev  0x00000000000027b0       0x6f c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
  .debug_abbrev  0x000000000000281f       0xa9 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
 
-.debug_line     0x0000000000000000     0x2967
+.debug_line     0x0000000000000000     0x296c
  *(.debug_line)
  .debug_line    0x0000000000000000       0x66 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp//obj/HAL/src/crt0.o
- .debug_line    0x0000000000000066       0x53 obj/default/lab2_main.o
- .debug_line    0x00000000000000b9       0x8e C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_load.o)
- .debug_line    0x0000000000000147       0xa4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
- .debug_line    0x00000000000001eb      0x137 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_line    0x0000000000000322      0x12f C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_line    0x0000000000000451      0x18b C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .debug_line    0x00000000000005dc      0x131 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .debug_line    0x000000000000070d      0x171 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_line    0x000000000000087e      0x170 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_line    0x00000000000009ee       0xf9 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .debug_line    0x0000000000000ae7      0x165 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_close.o)
- .debug_line    0x0000000000000c4c       0x51 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_line    0x0000000000000c9d       0xf8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
- .debug_line    0x0000000000000d95       0xcf C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_line    0x0000000000000e64       0x59 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .debug_line    0x0000000000000ebd       0x59 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .debug_line    0x0000000000000f16       0x51 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
- .debug_line    0x0000000000000f67       0x4f C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_line    0x0000000000000fb6       0xeb C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic.o)
- .debug_line    0x00000000000010a1       0xdb C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .debug_line    0x000000000000117c      0x135 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .debug_line    0x00000000000012b1       0x6b C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .debug_line    0x000000000000131c       0xaa C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .debug_line    0x00000000000013c6       0x50 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .debug_line    0x0000000000001416      0x12b C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_open.o)
- .debug_line    0x0000000000001541       0xb0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_release_fd.o)
- .debug_line    0x00000000000015f1       0xff C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
- .debug_line    0x00000000000016f0       0x51 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_line    0x0000000000001741       0xb3 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .debug_line    0x00000000000017f4       0xb5 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_dev.o)
- .debug_line    0x00000000000018a9       0xd1 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_file.o)
- .debug_line    0x000000000000197a       0xd7 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_get_fd.o)
- .debug_line    0x0000000000001a51       0xb9 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .debug_line    0x0000000000001b0a       0xe7 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
- .debug_line    0x0000000000001bf1      0x1fc c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
- .debug_line    0x0000000000001ded      0x160 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
- .debug_line    0x0000000000001f4d       0x5f c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
- .debug_line    0x0000000000001fac      0x176 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
- .debug_line    0x0000000000002122      0x18c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
- .debug_line    0x00000000000022ae      0x16f c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
- .debug_line    0x000000000000241d      0x21f c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
- .debug_line    0x000000000000263c      0x23a c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
- .debug_line    0x0000000000002876       0x80 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
- .debug_line    0x00000000000028f6       0x71 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
+ .debug_line    0x0000000000000066       0x58 obj/default/lab2_main.o
+ .debug_line    0x00000000000000be       0x8e C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_line    0x000000000000014c       0xa4 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_line    0x00000000000001f0      0x137 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x0000000000000327      0x12f C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_line    0x0000000000000456      0x18b C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_line    0x00000000000005e1      0x131 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_line    0x0000000000000712      0x171 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_line    0x0000000000000883      0x170 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x00000000000009f3       0xf9 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .debug_line    0x0000000000000aec      0x165 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_line    0x0000000000000c51       0x51 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x0000000000000ca2       0xf8 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_line    0x0000000000000d9a       0xcf C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_line    0x0000000000000e69       0x59 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .debug_line    0x0000000000000ec2       0x59 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .debug_line    0x0000000000000f1b       0x51 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_line    0x0000000000000f6c       0x4f C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x0000000000000fbb       0xeb C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_line    0x00000000000010a6       0xdb C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_line    0x0000000000001181      0x135 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_line    0x00000000000012b6       0x6b C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_line    0x0000000000001321       0xaa C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_line    0x00000000000013cb       0x50 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_line    0x000000000000141b      0x12b C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_line    0x0000000000001546       0xb0 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_line    0x00000000000015f6       0xff C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_line    0x00000000000016f5       0x51 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_line    0x0000000000001746       0xb3 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_line    0x00000000000017f9       0xb5 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_line    0x00000000000018ae       0xd1 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_line    0x000000000000197f       0xd7 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_line    0x0000000000001a56       0xb9 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_line    0x0000000000001b0f       0xe7 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-atexit.o)
+ .debug_line    0x0000000000001bf6      0x1fc c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-exit.o)
+ .debug_line    0x0000000000001df2      0x160 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-impure.o)
+ .debug_line    0x0000000000001f52       0x5f c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-int_errno.o)
+ .debug_line    0x0000000000001fb1      0x176 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcmp.o)
+ .debug_line    0x0000000000002127      0x18c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-memcpy.o)
+ .debug_line    0x00000000000022b3      0x16f c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-strlen.o)
+ .debug_line    0x0000000000002422      0x21f c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__atexit.o)
+ .debug_line    0x0000000000002641      0x23a c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libc.a(lib_a-__call_atexit.o)
+ .debug_line    0x000000000000287b       0x80 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_line    0x00000000000028fb       0x71 C:/gitrepos/CPET561/DE1_SoC_Lab2/src/SW/nios_software_bsp/\libhal_bsp.a(alt_exit.o)
 
 .debug_frame    0x0000000000000000      0xa78
  *(.debug_frame)
