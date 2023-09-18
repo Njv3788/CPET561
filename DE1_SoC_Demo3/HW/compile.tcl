@@ -1,6 +1,6 @@
 # Dr. Kaputa
 # Quartus II compile script for DE1-SoC board
-set project_name "assembly_demo"
+set project_name "int_demo"
 
 cd project
 load_package flow
