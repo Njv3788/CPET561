@@ -59,7 +59,7 @@ int main(void)
 {
     /* this enables the NIOS II to accept a TIMER interrupt 
      * and indicates the name of the interrupt handler */
-	alt_ic_isr_register(TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID,TIMER_0_IRQ,timer_isr,0,0);
+    alt_ic_isr_register(TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID,TIMER_0_IRQ,timer_isr,0,0);
     
     *LedPtr = 0; /* initial value to leds */
      
