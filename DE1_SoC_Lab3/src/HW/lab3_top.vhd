@@ -8,7 +8,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
-ENTITY lab2_top is
+ENTITY lab3_top is
   port (
     
     ----- CLOCK -----
@@ -27,9 +27,9 @@ ENTITY lab2_top is
     HEX0 : out  std_logic_vector(6 downto 0)  --for heartbeat
   
   );
-end entity lab2_top;
+end entity lab3_top;
 
-architecture rtl of lab2_top is
+architecture rtl of lab3_top is
   -- signal declarations
  
   signal reset_n : std_logic;
@@ -43,6 +43,7 @@ architecture rtl of lab2_top is
   component nios_system is
     port (
       clk_clk         : in  std_logic                    := 'X';             -- clk
+      leds_export     : out std_logic_vector(7 downto 0);                    -- export
       hex_0_export    : out std_logic_vector(6 downto 0);                    -- export
       reset_reset_n   : in  std_logic                    := 'X';             -- reset_n
       switches_export : in  std_logic_vector(7 downto 0) := (others => 'X'); -- export
@@ -81,6 +82,7 @@ begin
     port map (
       clk_clk         => CLOCK_50,          -- clk.clk
       reset_reset_n   => reset_n,           -- reset.reset_n
+      leds_export     => LEDR(7 downto 0), 
       hex_0_export    => HEX0(6 downto 0),  -- leds.export
       switches_export => SW(7 downto 0),     -- switches.export
       keys_export     => key_s

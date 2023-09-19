@@ -1,6 +1,6 @@
 # Dr. Kaputa
 # Quartus II compile script for DE1-SoC board
-set project_name "lab2_top"
+set project_name "lab3_top"
 
 cd project
 load_package flow
