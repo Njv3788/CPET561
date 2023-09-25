@@ -1,9 +1,8 @@
 	nios_system u0 (
-		.clk_clk         (<connected-to-clk_clk>),         //      clk.clk
-		.leds_export     (<connected-to-leds_export>),     //     leds.export
-		.reset_reset_n   (<connected-to-reset_reset_n>),   //    reset.reset_n
-		.switches_export (<connected-to-switches_export>), // switches.export
-		.hex_0_export    (<connected-to-hex_0_export>),    //    hex_0.export
-		.keys_export     (<connected-to-keys_export>)      //     keys.export
+		.clk_clk            (<connected-to-clk_clk>),            //       clk.clk
+		.reset_reset_n      (<connected-to-reset_reset_n>),      //     reset.reset_n
+		.custom_ip_ext_data (<connected-to-custom_ip_ext_data>), // custom_ip.ext_data
+		.custom_ip_ext_addr (<connected-to-custom_ip_ext_addr>), //          .ext_addr
+		.custom_ip_invalid  (<connected-to-custom_ip_invalid>)   //          .invalid
 	);
 

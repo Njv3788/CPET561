@@ -1,21 +1,19 @@
 	component nios_system is
 		port (
-			clk_clk         : in  std_logic                    := 'X';             -- clk
-			leds_export     : out std_logic_vector(7 downto 0);                    -- export
-			reset_reset_n   : in  std_logic                    := 'X';             -- reset_n
-			switches_export : in  std_logic_vector(7 downto 0) := (others => 'X'); -- export
-			hex_0_export    : out std_logic_vector(6 downto 0);                    -- export
-			keys_export     : in  std_logic_vector(3 downto 0) := (others => 'X')  -- export
+			clk_clk            : in  std_logic                     := 'X';             -- clk
+			reset_reset_n      : in  std_logic                     := 'X';             -- reset_n
+			custom_ip_ext_data : out std_logic_vector(31 downto 0);                    -- ext_data
+			custom_ip_ext_addr : in  std_logic_vector(2 downto 0)  := (others => 'X'); -- ext_addr
+			custom_ip_invalid  : in  std_logic                     := 'X'              -- invalid
 		);
 	end component nios_system;
 
 	u0 : component nios_system
 		port map (
-			clk_clk         => CONNECTED_TO_clk_clk,         --      clk.clk
-			leds_export     => CONNECTED_TO_leds_export,     --     leds.export
-			reset_reset_n   => CONNECTED_TO_reset_reset_n,   --    reset.reset_n
-			switches_export => CONNECTED_TO_switches_export, -- switches.export
-			hex_0_export    => CONNECTED_TO_hex_0_export,    --    hex_0.export
-			keys_export     => CONNECTED_TO_keys_export      --     keys.export
+			clk_clk            => CONNECTED_TO_clk_clk,            --       clk.clk
+			reset_reset_n      => CONNECTED_TO_reset_reset_n,      --     reset.reset_n
+			custom_ip_ext_data => CONNECTED_TO_custom_ip_ext_data, -- custom_ip.ext_data
+			custom_ip_ext_addr => CONNECTED_TO_custom_ip_ext_addr, --          .ext_addr
+			custom_ip_invalid  => CONNECTED_TO_custom_ip_invalid   --          .invalid
 		);
 

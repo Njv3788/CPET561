@@ -87,10 +87,10 @@ BEGIN
 --instantiate and port map the NIOS II component. 
 u0 : component nios_system
 		port map (
-			clk_clk            => CLOCK_50,            --       clk.clk
-			reset_reset_n      => KEY(0),      --     reset.reset_n
-			custom_ip_ext_addr => address, -- custom_ip.ext_addr
-			custom_ip_ext_data => data, --          .ext_data
-			custom_ip_invalid  => invalid   --          .invalid
+			clk_clk            => CLOCK_50,            -- clk.clk
+			reset_reset_n      => KEY(0),              -- reset.reset_n
+			custom_ip_ext_addr => address,             -- custom_ip.ext_addr
+			custom_ip_ext_data => data,                -- .ext_data
+			custom_ip_invalid  => invalid              -- .invalid
 		);
 END ARCHITECTURE Structure;
