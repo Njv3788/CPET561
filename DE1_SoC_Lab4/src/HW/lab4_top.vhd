@@ -75,7 +75,7 @@ BEGIN
   PROCESS(clk, reset_n)
   BEGIN
     IF (reset_n = '0') THEN
-      --Registers <= (OTHERS => "00000000000000000000000000000000");
+      Registers <= (OTHERS => "00000000000000000000000000000000");
     ELSIF (clk'event AND clk = '1') THEN
       IF (write = '1') THEN
         Registers(to_integer(unsigned(address))) <= writedata;

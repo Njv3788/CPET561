@@ -27,15 +27,16 @@ architecture arch of lab4_top_tb is
   constant period         : time := 20ns;
   signal clk              : std_logic := '0';
   signal write            : std_logic := '0';
-  signal reset            : std_logic := '1';
+  signal reset            : std_logic := '0';
   signal address          : std_logic_vector(2 DOWNTO 0)  := "000";
-  signal writedata        : std_logic_vector(31 DOWNTO 0) := (others => '0');
+  signal writedata        : std_logic_vector(31 DOWNTO 0) := "00000000000000000000000000000000";
   signal ext_addr_export  : std_logic_vector(2 downto 0)  := "000";
-  signal invalid_export   : std_logic;
+  signal invalid_export   : std_logic := '0';
   signal ext_data_export  : std_logic_vector(31 DOWNTO 0);
   signal irq              : std_logic;
+  signal address_sum      : std_logic_vector(3 downto 0) := "0000";
 begin
-    
+  
   -- clock process
   clock: process
     begin
@@ -47,9 +48,30 @@ begin
   async_reset: process
     begin
       wait for 2 * period;
-      reset <= '0';
+      reset <= '1';
       wait;
   end process; 
+  
+  stimulus: process
+    begin
+      wait for 4 * period;
+      fill_regs : for i in 0 to 7 loop
+        address <= address_sum(2 downto 0);
+        writedata <= std_logic_vector(unsigned(to_unsigned(10000,16)) * (i+1));
+        write <= '1';
+        wait for period;
+        write <= '0';
+        address_sum <= std_logic_vector(unsigned('0' & address) + 1);
+        wait for period;
+      end loop;
+      address_sum <= "0000";
+      read_regs : for i in 0 to 7 loop
+        ext_addr_export<= address_sum(2 downto 0);
+        address_sum <= std_logic_vector(unsigned('0' & ext_addr_export) + 1);
+        wait for 2 * period;
+      end loop;
+      wait;
+  end process;
   
   uut: lab4_top 
     port map(    

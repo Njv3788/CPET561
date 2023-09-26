@@ -24,7 +24,13 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate /lab4_top_tb/clk
 add wave -noupdate /lab4_top_tb/reset
 add wave -noupdate /lab4_top_tb/address
-add wave -noupdate -radix Hex /lab4_top_tb/writedata
+add wave -noupdate /lab4_top_tb/write
+add wave -noupdate /lab4_top_tb/ext_addr_export
+add wave -noupdate /lab4_top_tb/ext_data_export
+add wave -noupdate /lab4_top_tb/invalid_export
+add wave -noupdate /lab4_top_tb/irq
+add wave -noupdate -radix hexadecimal /lab4_top_tb/writedata
+add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/Registers
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {887 ns} 0}
