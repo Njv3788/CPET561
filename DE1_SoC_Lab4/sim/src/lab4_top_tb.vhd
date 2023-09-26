@@ -34,12 +34,7 @@ architecture arch of lab4_top_tb is
   signal invalid_export   : std_logic;
   signal ext_data_export  : std_logic_vector(31 DOWNTO 0);
   signal irq              : std_logic;
-Begin
-  
-  sequential_tb : process 
-      begin
-        
-    end process; 
+begin
     
   -- clock process
   clock: process
