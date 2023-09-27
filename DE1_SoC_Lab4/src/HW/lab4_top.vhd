@@ -22,11 +22,13 @@ ARCHITECTURE rtl OF lab4_top IS
       bits             : integer := 2
       );
     PORT(
-      clk              : IN std_logic;                           -- 50 Mhz system clock
-      reset_n          : IN std_logic;                           -- active low system reset
-      write            : IN std_logic;                           -- active high write enable
-      address          : IN std_logic_vector(bits-1 DOWNTO 0);   -- address of register to be written to (from CPU)
-      writedata        : IN std_logic_vector(31 DOWNTO 0)        -- data from the CPU to be stored in the component
+      clk              : IN  std_logic;                           -- 50 Mhz system clock
+      reset_n          : IN  std_logic;                           -- active low system reset
+      write            : IN  std_logic;                           -- active high write enable
+      address          : IN  std_logic_vector(bits-1 DOWNTO 0);   -- address of register to be written to (from CPU)
+      writedata        : IN  std_logic_vector(31 DOWNTO 0);       -- data from the CPU to be stored in the component
+      max_out          : OUT std_logic_vector(31 DOWNTO 0);
+      min_out          : OUT std_logic_vector(31 DOWNTO 0)
       );
   END COMPONENT;
   
@@ -62,5 +64,4 @@ BEGIN
       reset_n          => reset_n,
       enable           => '1'
     );
-  
 END ARCHITECTURE rtl;

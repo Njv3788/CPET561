@@ -11,11 +11,13 @@ ENTITY read_only_ram IS
     bits             : integer := 2
     );
   PORT(
-    clk              : IN std_logic;                      -- 50 Mhz system clock
-    reset_n          : IN std_logic;                      -- active low system reset
-    write            : IN std_logic;                      -- active high write enable
-    address          : IN std_logic_vector(bits-1 DOWNTO 0);   --address of register to be written to (from CPU)
-    writedata        : IN std_logic_vector(31 DOWNTO 0)   --data from the CPU to be stored in the component
+    clk              : IN  std_logic;                           -- 50 Mhz system clock
+    reset_n          : IN  std_logic;                           -- active low system reset
+    write            : IN  std_logic;                           -- active high write enable
+    address          : IN  std_logic_vector(bits-1 DOWNTO 0);   -- address of register to be written to (from CPU)
+    writedata        : IN  std_logic_vector(31 DOWNTO 0);       -- data from the CPU to be stored in the component
+    max_out          : OUT std_logic_vector(31 DOWNTO 0);
+    min_out          : OUT std_logic_vector(31 DOWNTO 0)
     );
 END ENTITY read_only_ram;
 
@@ -24,7 +26,11 @@ ARCHITECTURE rtl OF read_only_ram IS
   -- It stores eight 32-bit values
   TYPE ram_type IS ARRAY ((2**bits)-1 DOWNTO 0) OF std_logic_vector (31 DOWNTO 0);
   SIGNAL Registers : ram_type;          --instance of ram_type
+  ALIAS  max_value : std_logic_vector(31 DOWNTO 0)is Registers(0);
+  ALIAS  min_value : std_logic_vector(31 DOWNTO 0)is Registers(1);
 BEGIN
+  max_out <= max_value;
+  min_out <= min_value;
   --this process loads data from the CPU.  The CPU provides the address, 
   --the data and the write enable signal
   PROCESS(clk, reset_n)
@@ -38,5 +44,5 @@ BEGIN
         --is loaded with the input data
       END IF;
     END IF;
-  END PROCESS;
+  END PROCESS; 
 END ARCHITECTURE rtl;
