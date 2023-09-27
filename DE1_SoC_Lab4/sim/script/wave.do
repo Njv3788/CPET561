@@ -20,17 +20,27 @@ radix define Display {
     -default default         yellow
 }
 
+radix define state  {
+    "5'b00001" "IDLE"          -color "orange",
+    "5'b00010" "SWEEP_RIGHT"   -color "orange",
+    "5'b00100" "INT_RIGHT"     -color "orange",
+    "5'b01000" "SWEEP_LEFT"    -color "orange",
+    "5'b10000" "INT_LEFT"      -color "orange",
+    -default default         orange
+}
+
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /lab4_top_tb/clk
 add wave -noupdate /lab4_top_tb/reset
 add wave -noupdate /lab4_top_tb/address
 add wave -noupdate /lab4_top_tb/write
-add wave -noupdate /lab4_top_tb/ext_addr_export
-add wave -noupdate /lab4_top_tb/ext_data_export
-add wave -noupdate /lab4_top_tb/invalid_export
-add wave -noupdate /lab4_top_tb/irq
 add wave -noupdate -radix hexadecimal /lab4_top_tb/writedata
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/Registers
+add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/ram/Registers
+add wave -noupdate -radix state /lab4_top_tb/uut/fsm/current_states
+add wave -noupdate -radix state /lab4_top_tb/uut/fsm/next_states
+add wave -noupdate -radix state /lab4_top_tb/uut/fsm/irq
+add wave -noupdate -radix state /lab4_top_tb/uut/fsm/direxction
+add wave -noupdate -radix state /lab4_top_tb/uut/fsm/idle_out
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {887 ns} 0}
