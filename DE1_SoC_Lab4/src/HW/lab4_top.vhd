@@ -53,7 +53,6 @@ ARCHITECTURE rtl OF lab4_top IS
      enable           : IN  std_logic;
      pulse_period     : IN  std_logic_vector(bits-1 downto 0);
      pulse_width      : IN  std_logic_vector(bits-1 downto 0);
-     pulse            : OUT std_logic;
      pwm              : OUT std_logic
     );
    END COMPONENT pwm_generator;

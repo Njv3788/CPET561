@@ -41,10 +41,10 @@ add wave -noupdate -radix state /lab4_top_tb/uut/fsm/next_states
 add wave -noupdate -radix state /lab4_top_tb/uut/fsm/irq
 add wave -noupdate -radix state /lab4_top_tb/uut/fsm/direxction
 add wave -noupdate -radix state /lab4_top_tb/uut/fsm/idle_out
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/pulse
+add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/overflow
+add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/overwidth
 add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/pwm
 add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/count_sig
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/next_count
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {887 ns} 0}
 quietly wave cursor active 1
