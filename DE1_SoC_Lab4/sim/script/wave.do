@@ -34,17 +34,20 @@ add wave -noupdate /lab4_top_tb/clk
 add wave -noupdate /lab4_top_tb/reset
 add wave -noupdate /lab4_top_tb/address
 add wave -noupdate /lab4_top_tb/write
+add wave -noupdate /lab4_top_tb/irq
 add wave -noupdate -radix hexadecimal /lab4_top_tb/writedata
 add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/ram/Registers
 add wave -noupdate -radix state /lab4_top_tb/uut/fsm/current_states
 add wave -noupdate -radix state /lab4_top_tb/uut/fsm/next_states
-add wave -noupdate -radix state /lab4_top_tb/uut/fsm/irq
-add wave -noupdate -radix state /lab4_top_tb/uut/fsm/direxction
-add wave -noupdate -radix state /lab4_top_tb/uut/fsm/idle_out
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/overflow
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/overwidth
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/pwm
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/period_cnt/count_sig
+add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/overflow
+add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/over
+add wave -noupdate -radix decimal /lab4_top_tb/uut/fsm/angle_count
+add wave -noupdate -radix decimal /lab4_top_tb/uut/period_cnt/count_sig
+add wave -noupdate -radix decimal /lab4_top_tb/uut/fsm/max_count
+add wave -noupdate -radix decimal /lab4_top_tb/uut/fsm/min_count
+add wave -noupdate -radix decimal /lab4_top_tb/uut/period_cnt/pwm
+
+
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {887 ns} 0}
 quietly wave cursor active 1
@@ -62,5 +65,5 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {2100 ns}
+WaveRestoreZoom {0 ns} {12000 ns}
 

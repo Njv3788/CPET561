@@ -26,17 +26,18 @@ ARCHITECTURE rtl OF read_only_ram IS
   -- It stores eight 32-bit values
   TYPE ram_type IS ARRAY ((2**bits)-1 DOWNTO 0) OF std_logic_vector (31 DOWNTO 0);
   SIGNAL Registers : ram_type;          --instance of ram_type
-  ALIAS  max_value : std_logic_vector(31 DOWNTO 0)is Registers(0);
-  ALIAS  min_value : std_logic_vector(31 DOWNTO 0)is Registers(1);
+  ALIAS  max_value : std_logic_vector(31 DOWNTO 0)is Registers(1);
+  ALIAS  min_value : std_logic_vector(31 DOWNTO 0)is Registers(0);
 BEGIN
   max_out <= max_value;
   min_out <= min_value;
-  --this process loads data from the CPU.  The CPU provides the address, 
+  --this process loads data from the CPU. The CPU provides the address, 
   --the data and the write enable signal
   PROCESS(clk, reset_n)
   BEGIN
     IF (reset_n = '0') THEN
-      Registers <= (OTHERS => "00000000000000000000000000000000");
+      max_value <= x"000186A0";
+      min_value <= x"0000C350";
     ELSIF (clk'event AND clk = '1') THEN
       IF (write = '1') THEN
         Registers(to_integer(unsigned(address))) <= writedata;

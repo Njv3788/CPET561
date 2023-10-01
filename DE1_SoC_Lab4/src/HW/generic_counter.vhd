@@ -39,15 +39,14 @@ BEGIN
     END IF;
   END PROCESS;
   
-  process(cntrl_pin,plus_one,minus_one,jmp2count,count_sig)
-  begin
-    case cntrl_pin is
-      when "01"   => next_count <= plus_one (bits-1 downto 0);
-      when "10"   => next_count <= minus_one(bits-1 downto 0);
-      when "11"   => next_count <= jmp2count;
-      when others => next_count <= count_sig;
-    end case;
-  end process;
-  
+  PROCESS(cntrl_pin,plus_one,minus_one,jmp2count,count_sig)
+  BEGIN
+    CASE cntrl_pin IS
+      WHEN "01"   => next_count <= plus_one (bits-1 DOWNTO 0);
+      WHEN "10"   => next_count <= minus_one(bits-1 DOWNTO 0);
+      WHEN "11"   => next_count <= jmp2count;
+      WHEN OTHERS => next_count <= count_sig;
+    END CASE;
+  END PROCESS;
   
 END ARCHITECTURE rtl;
