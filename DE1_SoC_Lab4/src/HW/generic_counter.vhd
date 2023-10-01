@@ -39,13 +39,13 @@ BEGIN
     END IF;
   END PROCESS;
   
-  PROCESS(cntrl_pin,plus_one,minus_one,jmp2count,count_sig)
+  next_count_mux : PROCESS(cntrl_pin,plus_one,minus_one,jmp2count,count_sig)
   BEGIN
     CASE cntrl_pin IS
+      WHEN "00"   => next_count <= count_sig;
       WHEN "01"   => next_count <= plus_one (bits-1 DOWNTO 0);
       WHEN "10"   => next_count <= minus_one(bits-1 DOWNTO 0);
-      WHEN "11"   => next_count <= jmp2count;
-      WHEN OTHERS => next_count <= count_sig;
+      WHEN OTHERS => next_count <= jmp2count;
     END CASE;
   END PROCESS;
   

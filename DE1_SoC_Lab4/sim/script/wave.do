@@ -30,22 +30,22 @@ radix define state  {
 }
 
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /lab4_top_tb/clk
-add wave -noupdate /lab4_top_tb/reset
-add wave -noupdate /lab4_top_tb/address
-add wave -noupdate /lab4_top_tb/write
-add wave -noupdate /lab4_top_tb/irq
-add wave -noupdate -radix hexadecimal /lab4_top_tb/writedata
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/ram/Registers
-add wave -noupdate -radix state /lab4_top_tb/uut/fsm/current_states
-add wave -noupdate -radix state /lab4_top_tb/uut/fsm/next_states
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/overflow
-add wave -noupdate -radix hexadecimal /lab4_top_tb/uut/over
-add wave -noupdate -radix decimal /lab4_top_tb/uut/fsm/angle_count
-add wave -noupdate -radix decimal /lab4_top_tb/uut/period_cnt/count_sig
-add wave -noupdate -radix decimal /lab4_top_tb/uut/fsm/max_count
-add wave -noupdate -radix decimal /lab4_top_tb/uut/fsm/min_count
-add wave -noupdate -radix decimal /lab4_top_tb/uut/period_cnt/pwm
+add wave -noupdate                    /servo_controller_tb/clk
+add wave -noupdate                    /servo_controller_tb/reset
+add wave -noupdate                    /servo_controller_tb/address
+add wave -noupdate                    /servo_controller_tb/write
+add wave -noupdate                    /servo_controller_tb/irq
+add wave -noupdate -radix hexadecimal /servo_controller_tb/writedata
+add wave -noupdate -radix hexadecimal /servo_controller_tb/uut/ram/Registers
+add wave -noupdate -radix state       /servo_controller_tb/uut/fsm/current_states
+add wave -noupdate -radix state       /servo_controller_tb/uut/fsm/next_states
+add wave -noupdate -radix hexadecimal /servo_controller_tb/uut/overflow
+add wave -noupdate -radix hexadecimal /servo_controller_tb/uut/over
+add wave -noupdate -radix decimal     /servo_controller_tb/uut/fsm/angle_count
+add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/count_sig
+add wave -noupdate -radix decimal     /servo_controller_tb/uut/fsm/max_count
+add wave -noupdate -radix decimal     /servo_controller_tb/uut/fsm/min_count
+add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/pwm
 
 
 TreeUpdate [SetDefaultTree]

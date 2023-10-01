@@ -5,8 +5,8 @@ vcom -93 -work work ../../src/HW/angle_counter.vhd
 vcom -93 -work work ../../src/HW/pwm_generator.vhd
 vcom -93 -work work ../../src/HW/finite_state_machine.vhd
 vcom -93 -work work ../../src/HW/read_only_ram.vhd
-vcom -93 -work work ../../src/HW/lab4_top.vhd
-vcom -93 -work work ../src/lab4_top_tb.vhd
-vsim -voptargs=+acc lab4_top_tb
+vcom -93 -work work ../../src/HW/servo_controller.vhd
+vcom -93 -work work ../src/servo_controller_tb.vhd
+vsim -voptargs=+acc servo_controller_tb
 do wave.do
-run 120000000 ns
+run 6000 ns

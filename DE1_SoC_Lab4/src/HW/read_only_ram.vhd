@@ -36,8 +36,8 @@ BEGIN
   PROCESS(clk, reset_n)
   BEGIN
     IF (reset_n = '0') THEN
-      max_value <= x"000186A0";
-      min_value <= x"0000C350";
+      max_value <= x"00000009"; --x"000186A0";
+      min_value <= x"00000001"; --x"0000C350";
     ELSIF (clk'event AND clk = '1') THEN
       IF (write = '1') THEN
         Registers(to_integer(unsigned(address))) <= writedata;
