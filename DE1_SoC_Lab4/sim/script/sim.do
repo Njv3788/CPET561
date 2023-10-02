@@ -9,4 +9,4 @@ vcom -93 -work work ../../src/HW/servo_controller.vhd
 vcom -93 -work work ../src/servo_controller_tb.vhd
 vsim -voptargs=+acc servo_controller_tb
 do wave.do
-run 6000 ns
+run 38000 ns

@@ -36,8 +36,6 @@ ARCHITECTURE rtl OF lab4_top IS
 
 BEGIN
   
-  GPIO_0(35 DOWNTO 1) <= (others => '0');
-  
   stimulus: process(irq)
     begin
       if(irq = '1') then

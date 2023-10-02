@@ -58,7 +58,7 @@ BEGIN
     CASE(current_states)IS
       WHEN IDLE        => next_states <= SWEEP_RIGHT;
       WHEN SWEEP_RIGHT =>  
-        IF(angle_count =  max_count) THEN
+        IF((angle_count >=  max_count)) THEN
           next_states  <= INT_RIGHT;
         ELSE 
           next_states  <= current_states;
@@ -70,8 +70,8 @@ BEGIN
           next_states    <= current_states;
         END IF;
       WHEN SWEEP_LEFT  => 
-        IF(angle_count =  min_count) THEN
-          next_states  <= INT_LEFT; 
+        IF((angle_count <=  min_count)) THEN
+          next_states  <= INT_LEFT;
         ELSE 
           next_states  <= current_states;
         END IF;

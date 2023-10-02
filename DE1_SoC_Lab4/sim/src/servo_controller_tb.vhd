@@ -10,6 +10,10 @@ entity servo_controller_tb is
 end servo_controller_tb;
 
 architecture arch of servo_controller_tb is
+  
+  TYPE ram_type IS ARRAY (1 DOWNTO 0) OF std_logic_vector (31 DOWNTO 0);
+  TYPE math_type IS ARRAY (1 DOWNTO 0) OF std_logic_vector (32 DOWNTO 0);
+  
   component servo_controller is
     port(
       clk              : IN std_logic;                      -- 50 Mhz system clock
@@ -26,11 +30,15 @@ architecture arch of servo_controller_tb is
   signal clk              : std_logic := '0';
   signal write            : std_logic := '0';
   signal reset            : std_logic := '0';
+  signal ram              : ram_type := (x"00000009",x"00000001");
+  signal math             : math_type ;
   signal address          : std_logic_vector(0 DOWNTO 0)  := "0";
-  signal writedata        : std_logic_vector(31 DOWNTO 0) := x"00000001";
-  signal address_sum      : std_logic_vector(1 downto 0)  := "00";
+  signal writedata        : std_logic_vector(31 DOWNTO 0);
   signal irq              : std_logic;
 begin
+  writedata <= ram(to_integer(unsigned(address)));
+  math(0) <= std_logic_vector(unsigned('0' & ram(0)) + 1);
+  math(1) <= std_logic_vector(unsigned('0' & ram(1)) - 1);
   
   -- clock process
   clock: process
@@ -51,6 +59,10 @@ begin
     begin
       if(irq = '1') then
         write <= '1';
+        address <= not address;
+        if(not (ram(1) = ram(0))) then
+          ram(to_integer(unsigned(address))) <= math(to_integer(unsigned(address)))(31 DOWNTO 0);
+        end if;
       else
         write <= '0';
       end if;
