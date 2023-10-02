@@ -34,7 +34,6 @@ ARCHITECTURE rtl OF finite_state_machine IS
 
   SIGNAL current_states         : std_logic_vector(STATE-1 DOWNTO 0) := IDLE;
   SIGNAL next_states            : std_logic_vector(STATE-1 DOWNTO 0) := IDLE;
-  SIGNAL states                 : std_logic_vector(STATE-1 DOWNTO 0) := IDLE;
   
   ALIAS idle_bit                : std_logic is current_states(0);
   ALIAS sweep_right_bit         : std_logic is current_states(1);
@@ -50,33 +49,19 @@ BEGIN
     IF (reset_n = '0') THEN 
       current_states <= IDLE;
     ELSIF(RISING_EDGE(CLK))THEN
-      current_states <= states;
+      current_states <= next_states;
     END IF;
   END PROCESS;
   
-  PROCESS(idle_bit,overflow,next_states)
-  BEGIN
-    IF(idle_bit ='1')THEN
-      states <= next_states;
-    ELSIF(int_right_bit ='1')THEN
-      states <= next_states;
-    ELSIF(int_left_bit ='1')THEN
-      states <= next_states;
-    ELSIF(overflow ='1')THEN
-      states <= next_states;
-    ELSE
-      states <= current_states;
-    END IF;
-    
-  END PROCESS;
   
-  
-  next_register:PROCESS(current_states,angle_count,max_count,min_count,write)
+  next_register:PROCESS(current_states,angle_count,max_count,min_count,write,overflow)
   BEGIN
     CASE(current_states)IS
       WHEN IDLE        => next_states <= SWEEP_RIGHT;
       WHEN SWEEP_RIGHT =>  
-        IF((angle_count >=  max_count)) THEN
+        IF(overflow = '0') THEN
+          next_states  <= current_states;
+        ELSIF((angle_count >=  max_count)) THEN
           next_states  <= INT_RIGHT;
         ELSE 
           next_states  <= current_states;
@@ -88,7 +73,9 @@ BEGIN
           next_states    <= current_states;
         END IF;
       WHEN SWEEP_LEFT  => 
-        IF((angle_count <=  min_count)) THEN
+        IF(overflow = '0') THEN
+          next_states  <= current_states;
+        ELSIF((angle_count <=  min_count)) THEN
           next_states  <= INT_LEFT;
         ELSE 
           next_states  <= current_states;
@@ -102,10 +89,6 @@ BEGIN
       WHEN OTHERS      => next_states <= IDLE;
     END CASE;
   END PROCESS;
-  
---  angle_cntrl(2) <= int_right_bit;
---  angle_cntrl(1) <= not sweep_right_bit;
---  angle_cntrl(0) <= not sweep_left_bit;
   
   PROCESS(current_states,overflow)
   BEGIN
