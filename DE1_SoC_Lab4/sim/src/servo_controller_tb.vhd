@@ -20,7 +20,7 @@ architecture arch of servo_controller_tb is
       write            : IN std_logic;                      -- active high write enable
       reset_n          : IN std_logic;                      -- active low system reset
       address          : IN std_logic_vector(0 DOWNTO 0);   --address of register to be written to (from CPU)
-      writedata        : IN std_logic_vector(31 DOWNTO 0);   --data from the CPU to be stored in the component
+      writedata        : IN std_logic_vector(31 DOWNTO 0);  --data from the CPU to be stored in the component
       irq              : OUT std_logic;
       pwm              : OUT std_logic
   );end component; 
@@ -30,7 +30,7 @@ architecture arch of servo_controller_tb is
   signal clk              : std_logic := '0';
   signal write            : std_logic := '0';
   signal reset            : std_logic := '0';
-  signal ram              : ram_type := (x"00000009",x"00000001");
+  signal ram              : ram_type := (x"00000008",x"00000002");
   signal math             : math_type ;
   signal address          : std_logic_vector(0 DOWNTO 0)  := "0";
   signal writedata        : std_logic_vector(31 DOWNTO 0);

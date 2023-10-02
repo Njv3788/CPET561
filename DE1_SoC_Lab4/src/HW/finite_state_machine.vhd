@@ -34,6 +34,7 @@ ARCHITECTURE rtl OF finite_state_machine IS
 
   SIGNAL current_states         : std_logic_vector(STATE-1 DOWNTO 0) := IDLE;
   SIGNAL next_states            : std_logic_vector(STATE-1 DOWNTO 0) := IDLE;
+  SIGNAL states                 : std_logic_vector(STATE-1 DOWNTO 0) := IDLE;
   
   ALIAS idle_bit                : std_logic is current_states(0);
   ALIAS sweep_right_bit         : std_logic is current_states(1);
@@ -49,9 +50,26 @@ BEGIN
     IF (reset_n = '0') THEN 
       current_states <= IDLE;
     ELSIF(RISING_EDGE(CLK))THEN
-      current_states <= next_states;
+      current_states <= states;
     END IF;
   END PROCESS;
+  
+  PROCESS(idle_bit,overflow,next_states)
+  BEGIN
+    IF(idle_bit ='1')THEN
+      states <= next_states;
+    ELSIF(int_right_bit ='1')THEN
+      states <= next_states;
+    ELSIF(int_left_bit ='1')THEN
+      states <= next_states;
+    ELSIF(overflow ='1')THEN
+      states <= next_states;
+    ELSE
+      states <= current_states;
+    END IF;
+    
+  END PROCESS;
+  
   
   next_register:PROCESS(current_states,angle_count,max_count,min_count,write)
   BEGIN

@@ -41,8 +41,11 @@ add wave -noupdate -radix state       /servo_controller_tb/uut/fsm/current_state
 add wave -noupdate -radix state       /servo_controller_tb/uut/fsm/next_states
 add wave -noupdate -radix hexadecimal /servo_controller_tb/uut/overflow
 add wave -noupdate -radix hexadecimal /servo_controller_tb/uut/over
+add wave -noupdate -radix hexadecimal /servo_controller_tb/uut/pwm_enable
 add wave -noupdate -radix decimal     /servo_controller_tb/uut/fsm/angle_count
 add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/count_sig
+add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/overwidth
+add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/pulse_width
 add wave -noupdate -radix decimal     /servo_controller_tb/uut/fsm/max_count
 add wave -noupdate -radix decimal     /servo_controller_tb/uut/fsm/min_count
 add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/pwm
