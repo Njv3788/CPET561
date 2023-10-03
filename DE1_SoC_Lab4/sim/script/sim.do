@@ -1,6 +1,5 @@
 vlib work
 vcom -93 -work work ../../src/HW/generic_counter.vhd
-vcom -93 -work work ../../src/HW/generic_pulse.vhd
 vcom -93 -work work ../../src/HW/angle_counter.vhd
 vcom -93 -work work ../../src/HW/pwm_generator.vhd
 vcom -93 -work work ../../src/HW/finite_state_machine.vhd

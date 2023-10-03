@@ -39,6 +39,7 @@ ARCHITECTURE rtl OF pwm_generator IS
       reset_n          : IN  std_logic;                      -- active low system reset
       cntrl_pin        : IN  std_logic_vector(1 downto 0);
       jmp2count        : IN  std_logic_vector(bits-1 downto 0);
+      offset           : IN  std_logic_vector(bits-1 downto 0);
       count            : OUT std_logic_vector(bits-1 downto 0)
       );
   END COMPONENT generic_counter;
@@ -57,6 +58,7 @@ BEGIN
       reset_n          => reset_n,
       cntrl_pin        => cntrl_sig,
       jmp2count        => zero,
+      offset           => x"00000001",
       count            => count_sig
     );
   

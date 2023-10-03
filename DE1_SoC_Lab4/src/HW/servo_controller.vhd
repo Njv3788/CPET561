@@ -81,28 +81,15 @@ ARCHITECTURE rtl OF servo_controller IS
       );
   END COMPONENT angle_counter;
   
-  COMPONENT generic_pulse IS
-    GENERIC (
-      max_count       : integer RANGE 0 TO 100 := 3
-    );
-    PORT (
-      clk             : IN  std_logic; 
-      reset           : IN  std_logic;
-      input           : IN  std_logic;
-      output          : OUT std_logic
-    );  
-  END COMPONENT generic_pulse;  
-  
   CONSTANT bits           : integer := 1;
   CONSTANT register_width : integer := 32;
-  CONSTANT pluse_period   : std_logic_vector(register_width-1 downto 0) := x"0000000A";-- x"000F4240";
+  CONSTANT pluse_period   : std_logic_vector(register_width-1 downto 0) := x"000F4240";
   SIGNAL   pluse_width    : std_logic_vector(register_width-1 downto 0);
   SIGNAL   max_count      : std_logic_vector(register_width-1 downto 0);
   SIGNAL   min_count      : std_logic_vector(register_width-1 downto 0);
   SIGNAL   angle_count    : std_logic_vector(register_width-1 downto 0);
   SIGNAL   angle_cntrl    : std_logic_vector(2 downto 0);
   SIGNAL   overflow       : std_logic;
-  SIGNAL   over           : std_logic;
   SIGNAL   pwm_enable     : std_logic;
 
 BEGIN
@@ -127,7 +114,7 @@ BEGIN
       clk              => clk,
       reset_n          => reset_n,
       write            => write,
-      overflow         => over,
+      overflow         => overflow,
       angle_count      => angle_count,
       max_count        => max_count,
       min_count        => min_count,
@@ -162,16 +149,5 @@ BEGIN
       min_count        => min_count,
       max_count        => max_count,
       angle_count      => angle_count
-    );
-  
-  delay: generic_pulse
-    GENERIC MAP(
-      max_count        => 2
-    )
-    PORT MAP(    
-      clk              => clk,
-      reset            => reset_n,
-      input            => overflow,
-      output           => over
     );
 END ARCHITECTURE rtl;

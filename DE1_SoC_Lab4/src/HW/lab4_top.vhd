@@ -30,7 +30,7 @@ ARCHITECTURE rtl OF lab4_top IS
   
   SIGNAL write            : std_logic := '0';
   SIGNAL address          : std_logic_vector(0 DOWNTO 0)  := "0";
-  SIGNAL writedata        : std_logic_vector(31 DOWNTO 0) := x"00000001";
+  SIGNAL writedata        : std_logic_vector(31 DOWNTO 0) := x"0000C350";
   SIGNAL address_sum      : std_logic_vector(1 downto 0)  := "00";
   SIGNAL irq              : std_logic;
 

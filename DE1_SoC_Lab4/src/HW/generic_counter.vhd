@@ -15,6 +15,7 @@ ENTITY generic_counter IS
     reset_n          : IN  std_logic;                      -- active low system reset
     cntrl_pin        : IN  std_logic_vector(1 downto 0);
     jmp2count        : IN  std_logic_vector(bits-1 downto 0);
+    offset           : IN  std_logic_vector(bits-1 downto 0);
     count            : OUT std_logic_vector(bits-1 downto 0)
     );
 END ENTITY generic_counter;
@@ -26,8 +27,8 @@ ARCHITECTURE rtl OF generic_counter IS
   SIGNAL minus_one          : std_logic_vector(bits   downto 0):= (others => '0');
 
 BEGIN
-  plus_one  <= std_logic_vector(unsigned('0' & count_sig) + 1);
-  minus_one <= std_logic_vector(unsigned('0' & count_sig) - 1);
+  plus_one  <= std_logic_vector(unsigned('0' & count_sig) + unsigned('0' & offset));
+  minus_one <= std_logic_vector(unsigned('0' & count_sig) - unsigned('0' & offset));
   count     <= count_sig;
   
   count_reg : PROCESS(clk,reset_n,count_sig)
