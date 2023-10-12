@@ -101,7 +101,7 @@ ACDS_VERSION := 18.1
 # BUILD_NUMBER: 625
 
 SETTINGS_FILE := settings.bsp
-SOPC_FILE := C:/gitrepos/CPET561/DE1_SoC_Demo4/src/HW/nios_system/nios_system.sopcinfo
+SOPC_FILE := S:/Documents/gitrepos/CPET561/DE1_SoC_Demo5/src/HW/nios_system/nios_system.sopcinfo
 
 #-------------------------------------------------------------------------------
 #                             TOOL & COMMAND DEFINITIONS

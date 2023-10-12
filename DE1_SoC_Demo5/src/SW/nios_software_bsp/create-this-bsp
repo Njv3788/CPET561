@@ -4,8 +4,8 @@
 
 BSP_TYPE=hal
 BSP_DIR=.
-SOPC_DIR=C:/gitrepos/CPET561/DE1_SoC_Demo4/src/HW/nios_system/
-SOPC_FILE=C:/gitrepos/CPET561/DE1_SoC_Demo4/src/HW/nios_system/nios_system.sopcinfo
+SOPC_DIR=S:/Documents/gitrepos/CPET561/DE1_SoC_Demo5/src/HW/nios_system/
+SOPC_FILE=S:/Documents/gitrepos/CPET561/DE1_SoC_Demo5/src/HW/nios_system/nios_system.sopcinfo
 NIOS2_BSP_ARGS=""
 CPU_NAME=
 

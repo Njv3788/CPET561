@@ -2,11 +2,11 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Sep 19, 2023 8:16:19 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1695168979883</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\gitrepos\CPET561\DE1_SoC_Demo4\src\SW\nios_software_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>Oct 12, 2023 2:54:33 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1697136873624</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>S:\Documents\gitrepos\CPET561\DE1_SoC_Demo5\src\SW\nios_software_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
-        <SopcDesignFile>C:\gitrepos\CPET561\DE1_SoC_Demo4\src\HW\nios_system\nios_system.sopcinfo</SopcDesignFile>
+        <SopcDesignFile>S:\Documents\gitrepos\CPET561\DE1_SoC_Demo5\src\HW\nios_system\nios_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_gen2_0</Cpu>
         <SchemaVersion>1.9</SchemaVersion>

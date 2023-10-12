@@ -3,8 +3,8 @@
 # This script creates the blank_project application in this directory.
 
 
-BSP_DIR=C:/gitrepos/CPET561/DE1_SoC_Demo4/src/SW/nios_software_bsp/
-QUARTUS_PROJECT_DIR=C:/gitrepos/CPET561/DE1_SoC_Demo4/src/HW/nios_system/
+BSP_DIR=S:/Documents/gitrepos/CPET561/DE1_SoC_Demo5/src/SW/nios_software_bsp/
+QUARTUS_PROJECT_DIR=S:/Documents/gitrepos/CPET561/DE1_SoC_Demo5/src/HW/nios_system/
 NIOS2_APP_GEN_ARGS="--elf-name nios_software.elf --no-src --set OBJDUMP_INCLUDE_SOURCE 1"
 
 

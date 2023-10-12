@@ -177,7 +177,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := C:/gitrepos/CPET561/DE1_SoC_Demo4/src/SW/nios_software_bsp/
+BSP_ROOT_DIR := S:/Documents/gitrepos/CPET561/DE1_SoC_Demo5/src/SW/nios_software_bsp/
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=
@@ -188,7 +188,7 @@ APP_LIBRARY_NAMES :=
 BUILD_PRE_PROCESS :=
 BUILD_POST_PROCESS :=
 
-QUARTUS_PROJECT_DIR := C:/gitrepos/CPET561/DE1_SoC_Demo4/src/HW/nios_system/
+QUARTUS_PROJECT_DIR := S:/Documents/gitrepos/CPET561/DE1_SoC_Demo5/src/HW/nios_system/
 
 
 #END GENERATED
