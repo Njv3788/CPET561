@@ -51,6 +51,7 @@ architecture rtl of lab3_top is
     );
   end component nios_system;
   
+
 begin
   
   ----- Syncronize the reset

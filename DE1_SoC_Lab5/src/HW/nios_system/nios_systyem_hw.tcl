@@ -1,12 +1,11 @@
-# qsys scripting (.tcl) file for nios_system
-package require -exact qsys 16.0
+# _hw.tcl file for nios_systyem
+package require -exact qsys 18.1
 
-create_system {nios_system}
+file delete -force nios_system
+file delete -force nios_system.qsys
+file delete -force nios_system.sopinfo
 
-set_project_property DEVICE_FAMILY {Cyclone V}
-set_project_property DEVICE {5CSEMA5F31C6}
-set_project_property HIDE_FROM_IP_CATALOG {false}
-
+create_system nios_system
 # Instances and instance parameters
 # (disabled instances are intentionally culled)
 add_instance clk_0 clock_source 18.1
@@ -444,4 +443,4 @@ set_interconnect_requirement {$system} {qsys_mm.enableEccProtection} {FALSE}
 set_interconnect_requirement {$system} {qsys_mm.insertDefaultSlave} {FALSE}
 set_interconnect_requirement {$system} {qsys_mm.maxAdditionalLatency} {1}
 
-save_system {nios_system.qsys}
+save_system nios_system
