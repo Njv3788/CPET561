@@ -47,6 +47,7 @@ ARCHITECTURE rtl OF lab5_top IS
     port (
       clk               : in  std_logic;
       reset             : in  std_logic;
+      reset_value       : in  std_logic_vector (bits-1 downto 0);
       async_in          : in  std_logic_vector (bits-1 downto 0);
       sync_out          : out std_logic_vector (bits-1 downto 0)
     );
@@ -56,6 +57,8 @@ ARCHITECTURE rtl OF lab5_top IS
   signal SW_sync        : std_logic_vector( 9 downto 0);
   signal KEY_sync       : std_logic_vector( 3 downto 0);
 BEGIN
+
+  LEDR(7 downto 0) <= SW_sync(7 downto 0);
 
   --- heartbeat counter --------
   counter_proc : process (CLOCK_50) begin
@@ -69,7 +72,6 @@ BEGIN
   end process counter_proc;
   LEDR(9 downto 8) <= cntr(25 downto 24);
 
-
   SW_synchronizer : synchronizer
     generic map(
       bits => 10
@@ -77,6 +79,7 @@ BEGIN
     port map(
       clk               => CLOCK_50,
       reset             => KEY_sync(0),
+      reset_value       => x"00",
       async_in          => SW,
       sync_out          => SW_sync
     );
@@ -88,6 +91,7 @@ BEGIN
     port map(
       clk               => CLOCK_50,
       reset             => KEY_sync(0),
+      reset_value       => x"F",
       async_in          => KEY,
       sync_out          => KEY_sync
     );

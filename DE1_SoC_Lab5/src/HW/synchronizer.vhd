@@ -12,6 +12,7 @@ entity synchronizer is
   port (
     clk               : in  std_logic;
     reset             : in  std_logic;
+    reset_value       : in  std_logic_vector (bits-1 downto 0);
     async_in          : in  std_logic_vector (bits-1 downto 0);
     sync_out          : out std_logic_vector (bits-1 downto 0)
   );
@@ -23,15 +24,14 @@ signal flop1     : std_logic_vector (bits-1 downto 0);
 signal flop2     : std_logic_vector (bits-1 downto 0);
 signal flop3     : std_logic_vector (bits-1 downto 0);
 
-constant zero    : std_logic_vector (bits-1 downto 0):= (others => '0');
-
 begin 
+
 double_flop :process(reset,clk,async_in)
   begin
-    if reset = '1' then
-      flop1 <= zero;
-      flop2 <= zero;
-      flop3 <= zero;
+    if reset = '0' then
+      flop1 <= reset_value;
+      flop2 <= reset_value;
+      flop3 <= reset_value;
     elsif rising_edge(clk) then
       flop1 <= async_in;
       flop2 <= flop1;
