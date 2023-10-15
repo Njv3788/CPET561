@@ -1,0 +1,360 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/gitrepos/CPET561/DE1_SoC_Lab4/sim/script
+Eangle_counter
+Z1 w1696043108
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8../../src/HW/angle_counter.vhd
+Z8 F../../src/HW/angle_counter.vhd
+l0
+L9
+VF84Oo6N0UA<GGf;LNPfC_3
+!s100 h@@aCT?FQ_CcoX;PG4hlJ3
+Z9 OV;C;10.5b;63
+31
+Z10 !s110 1696343136
+!i10b 1
+Z11 !s108 1696343136.000000
+Z12 !s90 -reportprogress|300|-93|-work|work|../../src/HW/angle_counter.vhd|
+Z13 !s107 ../../src/HW/angle_counter.vhd|
+!i113 1
+Z14 o-93 -work work
+Z15 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 13 angle_counter 0 22 F84Oo6N0UA<GGf;LNPfC_3
+l46
+L23
+VLW@iN_N5bk2kLi?^PJ??l1
+!s100 ecA``gYK=jnT^N^hF>KnT3
+R9
+31
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Efinite_state_machine
+Z16 w1696297569
+R2
+R3
+R4
+R5
+R6
+R0
+Z17 8../../src/HW/finite_state_machine.vhd
+Z18 F../../src/HW/finite_state_machine.vhd
+l0
+L9
+VnNiV]4n_<lK<@3DBXCMC;0
+!s100 A]aaRP?:M[?<8WQO8U28I3
+R9
+31
+R10
+!i10b 1
+R11
+Z19 !s90 -reportprogress|300|-93|-work|work|../../src/HW/finite_state_machine.vhd|
+Z20 !s107 ../../src/HW/finite_state_machine.vhd|
+!i113 1
+R14
+R15
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 20 finite_state_machine 0 22 nNiV]4n_<lK<@3DBXCMC;0
+l43
+L27
+V5Cz[`Q=JgkceBPgWF5SZI3
+!s100 TGAPzQV?RFIZEz@8lDh`]0
+R9
+31
+R10
+!i10b 1
+R11
+R19
+R20
+!i113 1
+R14
+R15
+Egeneric_counter
+R16
+R2
+R3
+R4
+R5
+R6
+R0
+Z21 8../../src/HW/generic_counter.vhd
+Z22 F../../src/HW/generic_counter.vhd
+l0
+L9
+VBXakTIbF<14J]G;Yj:XLJ1
+!s100 ieIo3D3>`3EhYEz9o:iJ13
+R9
+31
+R10
+!i10b 1
+R11
+Z23 !s90 -reportprogress|300|-93|-work|work|../../src/HW/generic_counter.vhd|
+Z24 !s107 ../../src/HW/generic_counter.vhd|
+!i113 1
+R14
+R15
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 15 generic_counter 0 22 BXakTIbF<14J]G;Yj:XLJ1
+l28
+L22
+V]k6cL9VUV4zJ?1Kohz5@21
+!s100 Ca>MgeYmfeIH9L?>=c^]b3
+R9
+31
+R10
+!i10b 1
+R11
+R23
+R24
+!i113 1
+R14
+R15
+Egeneric_pulse
+Z25 w1696124124
+R5
+R6
+R0
+Z26 8../../src/HW/generic_pulse.vhd
+Z27 F../../src/HW/generic_pulse.vhd
+l0
+L8
+VFV1bYf1kbXF^@hfK0]gb42
+!s100 ]b7d9m4g8G;9<XCcTc]5h2
+R9
+31
+R10
+!i10b 1
+R11
+Z28 !s90 -reportprogress|300|-93|-work|work|../../src/HW/generic_pulse.vhd|
+Z29 !s107 ../../src/HW/generic_pulse.vhd|
+!i113 1
+R14
+R15
+Abeh
+R5
+R6
+DEx4 work 13 generic_pulse 0 22 FV1bYf1kbXF^@hfK0]gb42
+l24
+L20
+V]:6WJ=k_HAi<kI[2RZ?WR2
+!s100 DYUehmD<elEUBZ288cT?T2
+R9
+31
+R10
+!i10b 1
+R11
+R28
+R29
+!i113 1
+R14
+R15
+Epwm_generator
+Z30 w1696119046
+R2
+R3
+R4
+R5
+R6
+R0
+Z31 8../../src/HW/pwm_generator.vhd
+Z32 F../../src/HW/pwm_generator.vhd
+l0
+L9
+VV4HzOMh_@cfMdb_:ToAXT1
+!s100 <[1dI_ogj_D`@EOe;h>oZ0
+R9
+31
+R10
+!i10b 1
+R11
+Z33 !s90 -reportprogress|300|-93|-work|work|../../src/HW/pwm_generator.vhd|
+Z34 !s107 ../../src/HW/pwm_generator.vhd|
+!i113 1
+R14
+R15
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 13 pwm_generator 0 22 V4HzOMh_@cfMdb_:ToAXT1
+l46
+L24
+VQl16H;L4eACb<clg@i]GK2
+!s100 _KOz]H2lAQHblz8UNPjI61
+R9
+31
+R10
+!i10b 1
+R11
+R33
+R34
+!i113 1
+R14
+R15
+Eread_only_ram
+R16
+R2
+R3
+R4
+R5
+R6
+R0
+Z35 8../../src/HW/read_only_ram.vhd
+Z36 F../../src/HW/read_only_ram.vhd
+l0
+L9
+Vm66m<=]fbdQ`C<1?GR^FL1
+!s100 a[S?;GIkj^0SI9TWR@BfN1
+R9
+31
+R10
+!i10b 1
+R11
+Z37 !s90 -reportprogress|300|-93|-work|work|../../src/HW/read_only_ram.vhd|
+Z38 !s107 ../../src/HW/read_only_ram.vhd|
+!i113 1
+R14
+R15
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 13 read_only_ram 0 22 m66m<=]fbdQ`C<1?GR^FL1
+l31
+L24
+VlOAGcl3FeajI6NLGd_4Nk2
+!s100 mWD8nnB2lPZJ1Z3jI?1`c1
+R9
+31
+R10
+!i10b 1
+R11
+R37
+R38
+!i113 1
+R14
+R15
+Eservo_controller
+R16
+R2
+R3
+R4
+R5
+R6
+R0
+Z39 8../../src/HW/servo_controller.vhd
+Z40 F../../src/HW/servo_controller.vhd
+l0
+L9
+V@mZ4W8AFX8Xeh<e[1OIfk0
+!s100 VB=aP:TnhQi^6]MUVCV>;0
+R9
+31
+R10
+!i10b 1
+R11
+Z41 !s90 -reportprogress|300|-93|-work|work|../../src/HW/servo_controller.vhd|
+Z42 !s107 ../../src/HW/servo_controller.vhd|
+!i113 1
+R14
+R15
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 16 servo_controller 0 22 @mZ4W8AFX8Xeh<e[1OIfk0
+l108
+L21
+VafLH8F_`Dc0_RcK9[QO5b1
+!s100 Km;`ZGS47YkF:J;QRP@]12
+R9
+31
+R10
+!i10b 1
+R11
+R41
+R42
+!i113 1
+R14
+R15
+Eservo_controller_tb
+R16
+R2
+R5
+R6
+R0
+Z43 8../src/servo_controller_tb.vhd
+Z44 F../src/servo_controller_tb.vhd
+l0
+L9
+VNCI>VVG2RXB9mPHn3F1=f3
+!s100 m8zgHRQ7kGLonE5U2`liJ1
+R9
+31
+R10
+!i10b 1
+R11
+Z45 !s90 -reportprogress|300|-93|-work|work|../src/servo_controller_tb.vhd|
+Z46 !s107 ../src/servo_controller_tb.vhd|
+!i113 1
+R14
+R15
+Aarch
+R2
+R5
+R6
+DEx4 work 19 servo_controller_tb 0 22 NCI>VVG2RXB9mPHn3F1=f3
+l38
+L12
+VS55O>;d4]lzQmaOaZZ3Pf2
+!s100 ]<VgY4:7Ez<nQXUT2AC9O0
+R9
+31
+R10
+!i10b 1
+R11
+R45
+R46
+!i113 1
+R14
+R15
