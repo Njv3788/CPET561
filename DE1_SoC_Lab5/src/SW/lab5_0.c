@@ -35,8 +35,10 @@ typedef         float   real32;             // 32 bit real values
 #define NINE     0x18
 #define BLANK    0x7F
 
+#define UPDATE   0x10
 #define KEY_1    0x02
 #define KEY_2    0x04
+
 
 #define SERVO_MIN_D  45
 #define SERVO_MAX_D 135
@@ -68,6 +70,7 @@ uint32 * Hex_5_Ptr              = (uint32*)HEX_5_BASE;
 uint32 * Key_0_Ptr              = (uint32*)KEY_0_BASE;
 uint32 * Key_0_Mask_Ptr         = (uint32*)IOADDR_ALTERA_AVALON_PIO_IRQ_MASK(KEY_0_BASE);
 uint32 * Key_0_Egde_Ptr	        = (uint32*)IOADDR_ALTERA_AVALON_PIO_EDGE_CAP(KEY_0_BASE);
+volatile uint32 * Switch_0_Ptr           = (uint32*)SWITCH_0_BASE;
 uint32 * servo_controller_min   = (uint32*)SERVO_CONTROLLER_0_BASE;
 uint32 * servo_controller_max   = (uint32*)SERVO_CONTROLLER_0_BASE + 1;
 
@@ -84,6 +87,7 @@ int main(void)
 /* Enables interrupts then loops infinitely                                */
 /*****************************************************************************/
 {
+	uint32  key_0_isr_flag  = 0;
 	angle_t angle_degree    = {45,135};
 	angle_t angle_in        = angle_degree;
 	angle_t angle_machine;
@@ -93,13 +97,13 @@ int main(void)
 
 	angle_machine.min_angle = degree2machine(angle_degree.min_angle);
 	angle_machine.max_angle = degree2machine(angle_degree.max_angle);
-	bcd_min = in2bcd(angle_in.min_angle);
-	bcd_max = in2bcd(angle_in.max_angle);
+	bcd_min = in2bcd(angle_degree.min_angle);
+	bcd_max = in2bcd(angle_degree.max_angle);
 
     alt_ic_isr_register(KEY_0_IRQ_INTERRUPT_CONTROLLER_ID,
                         KEY_0_IRQ,
                         key_0_isr,
-                        0,
+						(void*)&key_0_isr_flag,
                         0);
     alt_ic_isr_register(SERVO_CONTROLLER_0_IRQ_INTERRUPT_CONTROLLER_ID,
                         SERVO_CONTROLLER_0_IRQ,
@@ -107,18 +111,38 @@ int main(void)
 						(void*)&angle_machine,
                         0);
 
+    *Key_0_Mask_Ptr |= KEY_1|KEY_2;
+    key_0_isr_flag  |= UPDATE;
     while(1)
     {
-        angle_degree.min_angle = degree2machine(angle_in.min_angle);
-        angle_degree.max_angle = degree2machine(angle_in.max_angle);
-        bcd_min = in2bcd(angle_in.min_angle);
-        bcd_max = in2bcd(angle_in.max_angle);
-        *Hex_0_Ptr = bcd2hex(bcd_max.ones);
-        *Hex_1_Ptr = bcd2hex(bcd_max.tens);
-        *Hex_2_Ptr = bcd2hex(bcd_max.hundreds);
-        *Hex_3_Ptr = bcd2hex(bcd_min.ones);
-        *Hex_4_Ptr = bcd2hex(bcd_min.tens);
-        *Hex_5_Ptr = bcd2hex(bcd_min.hundreds);
+        if( KEY_1 == (key_0_isr_flag &  KEY_1))
+        {
+        	key_0_isr_flag &= ~KEY_1;
+        	angle_in.min_angle = *Switch_0_Ptr;
+        	angle_degree.min_angle  = in2degree(angle_in.min_angle);
+        	angle_machine.min_angle = degree2machine(angle_degree.min_angle);
+        	bcd_min = in2bcd(angle_degree.min_angle);
+        };
+
+        if( KEY_2 == (key_0_isr_flag & KEY_2))
+        {
+        	key_0_isr_flag &= ~KEY_2;
+        	angle_in.max_angle = *Switch_0_Ptr;
+        	angle_degree.max_angle  = in2degree(angle_in.max_angle);
+        	angle_machine.max_angle = degree2machine(angle_degree.max_angle);
+        	bcd_max = in2bcd(angle_degree.max_angle);
+        };
+
+        if(UPDATE == key_0_isr_flag)
+        {
+        	key_0_isr_flag &= ~UPDATE;
+            *Hex_0_Ptr = bcd2hex(bcd_max.ones);
+            *Hex_1_Ptr = bcd2hex(bcd_max.tens);
+            *Hex_2_Ptr = bcd2hex(bcd_max.hundreds);
+            *Hex_3_Ptr = bcd2hex(bcd_min.ones);
+            *Hex_4_Ptr = bcd2hex(bcd_min.tens);
+            *Hex_5_Ptr = bcd2hex(bcd_min.hundreds);
+        };
     };
       
     return 0;
@@ -184,7 +208,21 @@ uint32 degree2machine (uint32 angle_degree)
 
 void key_0_isr(void *context)
 {
+    uint32 *key_0_isr_flag = (uint32*)context;
+    uint32  current_value = *Key_0_Egde_Ptr;
 
+    *key_0_isr_flag |= UPDATE;
+
+    if(KEY_1 == (KEY_1 & current_value))
+    {
+    	*key_0_isr_flag |= KEY_1;
+    }
+
+    if(KEY_2 == (KEY_2 & current_value))
+    {
+    	*key_0_isr_flag |= KEY_2;
+    }
+    *Key_0_Egde_Ptr = 0;
 };
 
 void servo_controller_0_isr(void *context)
