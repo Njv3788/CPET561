@@ -38,7 +38,7 @@ typedef         float   real32;             // 32 bit real values
 #define UPDATE   0x10
 #define KEY_1    0x02
 #define KEY_2    0x04
-
+#define KEY_3    0x08
 
 #define SERVO_MIN_D  45
 #define SERVO_MAX_D 135
@@ -49,14 +49,14 @@ typedef         float   real32;             // 32 bit real values
 #define SERVO_STEP  500
 
 typedef struct{
-	uint32 min_angle;
-	uint32 max_angle;
+    uint32 min_angle;
+    uint32 max_angle;
 }angle_t;
 
 typedef struct{
-	uint32 ones;
-	uint32 tens;
-	uint32 hundreds;
+    uint32 ones;
+    uint32 tens;
+    uint32 hundreds;
 }bcd_t;
 
 //set up pointers to peripherals
@@ -70,7 +70,7 @@ uint32 * Hex_5_Ptr              = (uint32*)HEX_5_BASE;
 uint32 * Key_0_Ptr              = (uint32*)KEY_0_BASE;
 uint32 * Key_0_Mask_Ptr         = (uint32*)IOADDR_ALTERA_AVALON_PIO_IRQ_MASK(KEY_0_BASE);
 uint32 * Key_0_Egde_Ptr	        = (uint32*)IOADDR_ALTERA_AVALON_PIO_EDGE_CAP(KEY_0_BASE);
-volatile uint32 * Switch_0_Ptr           = (uint32*)SWITCH_0_BASE;
+volatile uint32 * Switch_0_Ptr  = (uint32*)SWITCH_0_BASE;
 uint32 * servo_controller_min   = (uint32*)SERVO_CONTROLLER_0_BASE;
 uint32 * servo_controller_max   = (uint32*)SERVO_CONTROLLER_0_BASE + 1;
 
@@ -87,61 +87,61 @@ int main(void)
 /* Enables interrupts then loops infinitely                                */
 /*****************************************************************************/
 {
-	uint32  key_0_isr_flag  = 0;
-	angle_t angle_degree    = {45,135};
-	angle_t angle_in        = angle_degree;
-	angle_t angle_machine;
-
-	bcd_t bcd_min;
-	bcd_t bcd_max;
-
-	angle_machine.min_angle = degree2machine(angle_degree.min_angle);
-	angle_machine.max_angle = degree2machine(angle_degree.max_angle);
-	bcd_min = in2bcd(angle_degree.min_angle);
-	bcd_max = in2bcd(angle_degree.max_angle);
+    uint32  key_0_isr_flag  = 0;
+    angle_t angle_degree    = {45,135};
+    angle_t angle_in        = angle_degree;
+    angle_t angle_machine;
+    
+    bcd_t bcd_min;
+    bcd_t bcd_max;
+    
+    angle_machine.min_angle = degree2machine(angle_degree.min_angle);
+    angle_machine.max_angle = degree2machine(angle_degree.max_angle);
+    bcd_min = in2bcd(angle_degree.min_angle);
+    bcd_max = in2bcd(angle_degree.max_angle);
 
     alt_ic_isr_register(KEY_0_IRQ_INTERRUPT_CONTROLLER_ID,
                         KEY_0_IRQ,
                         key_0_isr,
-						(void*)&key_0_isr_flag,
+            (void*)&key_0_isr_flag,
                         0);
     alt_ic_isr_register(SERVO_CONTROLLER_0_IRQ_INTERRUPT_CONTROLLER_ID,
                         SERVO_CONTROLLER_0_IRQ,
                         servo_controller_0_isr,
-						(void*)&angle_machine,
+            (void*)&angle_machine,
                         0);
 
-    *Key_0_Mask_Ptr |= KEY_1|KEY_2;
+    *Key_0_Mask_Ptr |= KEY_3|KEY_2;
     key_0_isr_flag  |= UPDATE;
     while(1)
     {
-        if( KEY_1 == (key_0_isr_flag &  KEY_1))
+        if( KEY_3 == (key_0_isr_flag &  KEY_3))
         {
-        	key_0_isr_flag &= ~KEY_1;
-        	angle_in.min_angle = *Switch_0_Ptr;
-        	angle_degree.min_angle  = in2degree(angle_in.min_angle);
-        	angle_machine.min_angle = degree2machine(angle_degree.min_angle);
-        	bcd_min = in2bcd(angle_degree.min_angle);
+            key_0_isr_flag         &= ~KEY_3;
+            angle_in.min_angle      = *Switch_0_Ptr;
+            angle_degree.min_angle  = in2degree(angle_in.min_angle);
+            angle_machine.min_angle = degree2machine(angle_degree.min_angle);
+            bcd_min                 = in2bcd(angle_degree.min_angle);
         };
 
         if( KEY_2 == (key_0_isr_flag & KEY_2))
         {
-        	key_0_isr_flag &= ~KEY_2;
-        	angle_in.max_angle = *Switch_0_Ptr;
-        	angle_degree.max_angle  = in2degree(angle_in.max_angle);
-        	angle_machine.max_angle = degree2machine(angle_degree.max_angle);
-        	bcd_max = in2bcd(angle_degree.max_angle);
+            key_0_isr_flag         &= ~KEY_2;
+            angle_in.max_angle      = *Switch_0_Ptr;
+            angle_degree.max_angle  = in2degree(angle_in.max_angle);
+            angle_machine.max_angle = degree2machine(angle_degree.max_angle);
+            bcd_max                 = in2bcd(angle_degree.max_angle);
         };
 
         if(UPDATE == key_0_isr_flag)
         {
-        	key_0_isr_flag &= ~UPDATE;
-            *Hex_0_Ptr = bcd2hex(bcd_max.ones);
-            *Hex_1_Ptr = bcd2hex(bcd_max.tens);
-            *Hex_2_Ptr = bcd2hex(bcd_max.hundreds);
-            *Hex_3_Ptr = bcd2hex(bcd_min.ones);
-            *Hex_4_Ptr = bcd2hex(bcd_min.tens);
-            *Hex_5_Ptr = bcd2hex(bcd_min.hundreds);
+            key_0_isr_flag &= ~UPDATE;
+            *Hex_0_Ptr      = bcd2hex(bcd_max.ones);
+            *Hex_1_Ptr      = bcd2hex(bcd_max.tens);
+            *Hex_2_Ptr      = bcd2hex(bcd_max.hundreds);
+            *Hex_3_Ptr      = bcd2hex(bcd_min.ones);
+            *Hex_4_Ptr      = bcd2hex(bcd_min.tens);
+            *Hex_5_Ptr      = bcd2hex(bcd_min.hundreds);
         };
     };
       
@@ -149,60 +149,60 @@ int main(void)
 }
 uint32 bcd2hex(uint32 bcd)
 {
-	uint32 hex;
-	switch(bcd)
-	{
-	    case 0: hex  = ZERO;  break;
-	    case 1:	hex  = ONE;   break;
-	    case 2:	hex  = TWO;   break;
-	    case 3:	hex  = THREE; break;
-	    case 4: hex  = FOUR;  break;
-	    case 5: hex  = FIVE;  break;
-	    case 6: hex  = SIX;   break;
-	    case 7:	hex  = SEVEN; break;
-	    case 8: hex  = EIGHT; break;
-        case 9:	hex  = NINE;  break;
+    uint32 hex;
+    switch(bcd)
+    {
+        case 0: hex  = ZERO;  break;
+        case 1: hex  = ONE;   break;
+        case 2: hex  = TWO;   break;
+        case 3: hex  = THREE; break;
+        case 4: hex  = FOUR;  break;
+        case 5: hex  = FIVE;  break;
+        case 6: hex  = SIX;   break;
+        case 7: hex  = SEVEN; break;
+        case 8: hex  = EIGHT; break;
+        case 9: hex  = NINE;  break;
         default: hex = BLANK; break;
     }
-
-	return hex;
+    
+    return hex;
 
 };
 bcd_t in2bcd (uint32 angle_in)
 {
-	bcd_t angle_bcd;
-	angle_bcd.ones = angle_in % 10;
-	angle_bcd.tens = (angle_in % 100 - angle_bcd.ones)/10;
-	angle_bcd.hundreds = (angle_in - angle_bcd.tens - angle_bcd.ones)/100;
-	return angle_bcd;
+    bcd_t angle_bcd;
+    angle_bcd.ones = angle_in % 10;
+    angle_bcd.tens = (angle_in % 100 - angle_bcd.ones)/10;
+    angle_bcd.hundreds = (angle_in - angle_bcd.tens - angle_bcd.ones)/100;
+    return angle_bcd;
 };
 
 uint32 in2degree (uint32 angle_in)
 {
-	if(angle_in < 45)
-	{
-		return 45;
-	}
-
-	if(angle_in > 135)
+    if(angle_in < 45)
+    {
+        return 45;
+    }
+  
+    if(angle_in > 135)
     {
         return 135;
     }
-
-	return angle_in;
+    
+    return angle_in;
 }
 
 uint32 degree2machine (uint32 angle_degree)
 {
-	uint32 angle_machine;
-	uint32 angle_error;
-
-	angle_machine = angle_degree  - SERVO_MIN_D;
-	angle_machine = angle_machine * (SERVO_MAX_M-SERVO_MIN_M)/(SERVO_MAX_D-SERVO_MIN_D);
+    uint32 angle_machine;
+    uint32 angle_error;
+    
+    angle_machine = angle_degree  - SERVO_MIN_D;
+    angle_machine = angle_machine * (SERVO_MAX_M-SERVO_MIN_M)/(SERVO_MAX_D-SERVO_MIN_D);
     angle_error   = angle_machine % SERVO_STEP;
     angle_machine = angle_machine - angle_error;
     angle_machine = angle_machine + SERVO_MIN_M;
-
+    
     return angle_machine;
 }
 
@@ -210,24 +210,24 @@ void key_0_isr(void *context)
 {
     uint32 *key_0_isr_flag = (uint32*)context;
     uint32  current_value = *Key_0_Egde_Ptr;
-
+    
     *key_0_isr_flag |= UPDATE;
-
-    if(KEY_1 == (KEY_1 & current_value))
+    
+    if(KEY_3 == (KEY_3 & current_value))
     {
-    	*key_0_isr_flag |= KEY_1;
+        *key_0_isr_flag |= KEY_3;
     }
-
+    
     if(KEY_2 == (KEY_2 & current_value))
     {
-    	*key_0_isr_flag |= KEY_2;
+        *key_0_isr_flag |= KEY_2;
     }
     *Key_0_Egde_Ptr = 0;
 };
 
 void servo_controller_0_isr(void *context)
 {
-	angle_t * angle_machine = (angle_t*)context;
+    angle_t * angle_machine = (angle_t*)context;
     *servo_controller_min   = (uint32)angle_machine->min_angle;
     *servo_controller_max   = (uint32)angle_machine->max_angle;
 };
