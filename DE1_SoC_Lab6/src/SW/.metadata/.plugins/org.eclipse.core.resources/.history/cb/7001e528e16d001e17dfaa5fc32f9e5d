@@ -22,7 +22,7 @@ typedef   signed long   sint32;             // signed 32 bit values
 typedef unsigned long   uint32;             // unsigned 32 bit values
 typedef         float   real32;             // 32 bit real values
 
-#define ram_size  0x4000
+#define ram_size  0x2000
 #define data_32   0xABCDEF09
 #define data_16   0xDCBA
 #define  data_8   0xFE
@@ -54,7 +54,7 @@ int main(void)
 void uint32_ram_test(uint32 * start_ptr ,uint32 size, uint32 data)
 {
 
-	size = size/4;
+	size = size/2;
 	*Led_0_ptr = 0x00;
 
 	for(int i = 0; i< size ;i++)
