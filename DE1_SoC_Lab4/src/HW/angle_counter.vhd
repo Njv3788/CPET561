@@ -57,7 +57,7 @@ BEGIN
       reset_n          => reset_n,
       cntrl_pin        => cntrl_sig,
       jmp2count        => jmp2count,
-      offset           => x"000001F4",
+      offset           => x"00000001",
       count            => angle_count_sig
       );
   

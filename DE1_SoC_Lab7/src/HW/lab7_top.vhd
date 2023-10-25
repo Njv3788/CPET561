@@ -6,15 +6,15 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY lab6_top IS
+ENTITY lab7_top IS
   PORT(
     CLOCK_50         : IN  std_logic;                      -- 50 Mhz system clock
     KEY              : IN  std_logic_vector( 3 downto 0); 
     LEDR             : OUT std_logic_vector( 9 downto 0) 
     );
-END ENTITY lab6_top;
+END ENTITY lab7_top;
 
-ARCHITECTURE rtl OF lab6_top IS
+ARCHITECTURE rtl OF lab7_top IS
 
   component nios_system is
     port (

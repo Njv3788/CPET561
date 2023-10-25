@@ -83,7 +83,7 @@ ARCHITECTURE rtl OF servo_controller IS
   
   CONSTANT bits           : integer := 1;
   CONSTANT register_width : integer := 32;
-  CONSTANT pluse_period   : std_logic_vector(register_width-1 downto 0) := x"000F4240";
+  CONSTANT pluse_period   : std_logic_vector(register_width-1 downto 0) := x"0000000A";
   SIGNAL   pluse_width    : std_logic_vector(register_width-1 downto 0);
   SIGNAL   max_count      : std_logic_vector(register_width-1 downto 0);
   SIGNAL   min_count      : std_logic_vector(register_width-1 downto 0);

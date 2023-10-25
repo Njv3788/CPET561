@@ -26,10 +26,11 @@ typedef         float   real32;             // 32 bit real values
 #define data_32   0xABCDEF09
 #define data_16   0xDCBA
 #define  data_8   0xFE
+#define key_0_1   0x02
 
-uint8  * Key_0_ptr        = (uint8*)  KEY_0_BASE;
-uint8  * Led_0_ptr        = (uint8*)  LED_0_BASE;
-uint32 * Inferred_ram_ptr = (uint32*) INFERRED_RAM_0_BASE;
+uint32  * Key_0_ptr          = (uint32*)  KEY_0_BASE;
+uint32  * Led_0_ptr          = (uint32*)  LED_0_BASE;
+uint32 * Inferred_ram_be_ptr = (uint32*) INFERRED_RAM_BE_0_BASE;
 
 void uint32_ram_test(uint32 * start ,uint32 size, uint32 data);
 void uint16_ram_test(uint16 * start ,uint32 size, uint16 data);
@@ -40,12 +41,21 @@ int main(void)
 /* Enables interrupts then loops infinitely                                */
 /*****************************************************************************/
 {
-	*Led_0_ptr = 0x00;
-	while(1)
+    *Led_0_ptr = 0x00;
+    uint8 flag = 0x00;
+    while(1)
     {
-		uint32_ram_test((uint32*)Inferred_ram_ptr,(uint32)ram_size,(uint32)data_32);
-		uint16_ram_test((uint16*)Inferred_ram_ptr,(uint32)ram_size,(uint16)data_16);
-		uint8_ram_test ((uint8 *)Inferred_ram_ptr,(uint32)ram_size,(uint8 )data_8);
+    	if(key_0_1 == flag| key_0_1 )
+    	{
+    	    uint32_ram_test((uint32*)Inferred_ram_be_ptr,(uint32)ram_size,(uint32)data_32);
+            uint16_ram_test((uint16*)Inferred_ram_be_ptr,(uint32)ram_size,(uint16)data_16);
+            uint8_ram_test ((uint8 *)Inferred_ram_be_ptr,(uint32)ram_size,(uint8 )data_8);
+    	}
+
+    	if( key_0_1 == KEY_0_BASE| key_0_1)
+    	{
+    		flag |= key_0_1;
+    	}
     };
 
     return 0;
@@ -54,19 +64,19 @@ int main(void)
 void uint32_ram_test(uint32 * start_ptr ,uint32 size, uint32 data)
 {
 
-	size = size/4;
-	*Led_0_ptr = 0x00;
-
-	for(int i = 0; i< size ;i++)
-	{
-		start_ptr[i] = data;
-	}
-
-	for(int i = 0; i< size ;i++)
+     size = size/4;
+     *Led_0_ptr = 0x00;
+     
+     for(int i = 0; i< size ;i++)
+     {
+        start_ptr[i] = data;
+     }
+     
+    for(int i = 0; i< size ;i++)
     {
         if (start_ptr[i] != data)
         {
-        	*Led_0_ptr |= 0xFF;
+          *Led_0_ptr |= 0xFF;
         };
     }
 }
@@ -74,35 +84,35 @@ void uint32_ram_test(uint32 * start_ptr ,uint32 size, uint32 data)
 void uint16_ram_test(uint16 * start_ptr ,uint32 size, uint16 data)
 {
 
-	size = size/2;
-	*Led_0_ptr = 0x00;
-
-	for(int i = 0; i< size ;i++)
-	{
-		start_ptr[i] = data;
-	}
-
-	for(int i = 0; i< size ;i++)
+    size = size/2;
+    *Led_0_ptr = 0x00;
+    
+    for(int i = 0; i< size ;i++)
+    {
+        start_ptr[i] = data;
+    }
+    
+    for(int i = 0; i< size ;i++)
     {
         if (start_ptr[i] != data)
         {
-        	*Led_0_ptr |= 0xFF;
+            *Led_0_ptr |= 0xFF;
         };
     }
 }
 
 void uint8_ram_test(uint8 * start_ptr ,uint32 size, uint8 data)
 {
-	for(int i = 0; i< size ;i++)
-	{
-		start_ptr[i] = data;
-	}
-
-	for(int i = 0; i< size ;i++)
+    for(int i = 0; i< size ;i++)
+    {
+        start_ptr[i] = data;
+    }
+  
+    for(int i = 0; i< size ;i++)
     {
         if (start_ptr[i] != data)
         {
-        	*Led_0_ptr = 0xff;
+            *Led_0_ptr = 0xff;
         };
     }
 }

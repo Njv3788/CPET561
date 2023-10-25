@@ -14,7 +14,7 @@ set_instance_parameter_value clk_0 {clockFrequency} {50000000.0}
 set_instance_parameter_value clk_0 {clockFrequencyKnown} {1}
 set_instance_parameter_value clk_0 {resetSynchronousEdges} {NONE}
 
-add_instance inferred_ram_0 inferred_ram 1.0
+add_instance inferred_ram_be_0 inferred_ram_be 1.0
 
 add_instance jtag_uart_0 altera_avalon_jtag_uart 18.1
 set_instance_parameter_value jtag_uart_0 {allowMultipleConnections} {0}
@@ -234,7 +234,7 @@ add_interface reset reset sink
 set_interface_property reset EXPORT_OF clk_0.clk_in_reset
 
 # connections and connection parameters
-add_connection clk_0.clk inferred_ram_0.clock
+add_connection clk_0.clk inferred_ram_be_0.clock
 
 add_connection clk_0.clk jtag_uart_0.clk
 
@@ -248,42 +248,42 @@ add_connection clk_0.clk onchip_memory2_0.clk1
 
 add_connection clk_0.clk sysid_qsys_0.clk
 
-add_connection nios2_gen2_0.data_master inferred_ram_0.avalon_slave_0
-set_connection_parameter_value nios2_gen2_0.data_master/inferred_ram_0.avalon_slave_0 arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/inferred_ram_0.avalon_slave_0 baseAddress {0x4000}
-set_connection_parameter_value nios2_gen2_0.data_master/inferred_ram_0.avalon_slave_0 defaultConnection {0}
+add_connection nios2_gen2_0.data_master inferred_ram_be_0.avalon_slave_0
+set_connection_parameter_value nios2_gen2_0.data_master/inferred_ram_be_0.avalon_slave_0 arbitrationPriority {1}
+set_connection_parameter_value nios2_gen2_0.data_master/inferred_ram_be_0.avalon_slave_0 baseAddress {0x0000}
+set_connection_parameter_value nios2_gen2_0.data_master/inferred_ram_be_0.avalon_slave_0 defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master jtag_uart_0.avalon_jtag_slave
 set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave baseAddress {0xd028}
+set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave baseAddress {0x9028}
 set_connection_parameter_value nios2_gen2_0.data_master/jtag_uart_0.avalon_jtag_slave defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master key_0.s1
 set_connection_parameter_value nios2_gen2_0.data_master/key_0.s1 arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/key_0.s1 baseAddress {0xd010}
+set_connection_parameter_value nios2_gen2_0.data_master/key_0.s1 baseAddress {0x9010}
 set_connection_parameter_value nios2_gen2_0.data_master/key_0.s1 defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master led_0.s1
 set_connection_parameter_value nios2_gen2_0.data_master/led_0.s1 arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/led_0.s1 baseAddress {0xd000}
+set_connection_parameter_value nios2_gen2_0.data_master/led_0.s1 baseAddress {0x9000}
 set_connection_parameter_value nios2_gen2_0.data_master/led_0.s1 defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master nios2_gen2_0.debug_mem_slave
 set_connection_parameter_value nios2_gen2_0.data_master/nios2_gen2_0.debug_mem_slave arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/nios2_gen2_0.debug_mem_slave baseAddress {0xc800}
+set_connection_parameter_value nios2_gen2_0.data_master/nios2_gen2_0.debug_mem_slave baseAddress {0x8800}
 set_connection_parameter_value nios2_gen2_0.data_master/nios2_gen2_0.debug_mem_slave defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master onchip_memory2_0.s1
 set_connection_parameter_value nios2_gen2_0.data_master/onchip_memory2_0.s1 arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/onchip_memory2_0.s1 baseAddress {0x8000}
+set_connection_parameter_value nios2_gen2_0.data_master/onchip_memory2_0.s1 baseAddress {0x4000}
 set_connection_parameter_value nios2_gen2_0.data_master/onchip_memory2_0.s1 defaultConnection {0}
 
 add_connection nios2_gen2_0.data_master sysid_qsys_0.control_slave
 set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave baseAddress {0xd020}
+set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave baseAddress {0x9020}
 set_connection_parameter_value nios2_gen2_0.data_master/sysid_qsys_0.control_slave defaultConnection {0}
 
-add_connection nios2_gen2_0.debug_reset_request inferred_ram_0.reset
+add_connection nios2_gen2_0.debug_reset_request inferred_ram_be_0.reset
 
 add_connection nios2_gen2_0.debug_reset_request jtag_uart_0.reset
 
@@ -299,12 +299,12 @@ add_connection nios2_gen2_0.debug_reset_request sysid_qsys_0.reset
 
 add_connection nios2_gen2_0.instruction_master nios2_gen2_0.debug_mem_slave
 set_connection_parameter_value nios2_gen2_0.instruction_master/nios2_gen2_0.debug_mem_slave arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.instruction_master/nios2_gen2_0.debug_mem_slave baseAddress {0xc800}
+set_connection_parameter_value nios2_gen2_0.instruction_master/nios2_gen2_0.debug_mem_slave baseAddress {0x8800}
 set_connection_parameter_value nios2_gen2_0.instruction_master/nios2_gen2_0.debug_mem_slave defaultConnection {0}
 
 add_connection nios2_gen2_0.instruction_master onchip_memory2_0.s1
 set_connection_parameter_value nios2_gen2_0.instruction_master/onchip_memory2_0.s1 arbitrationPriority {1}
-set_connection_parameter_value nios2_gen2_0.instruction_master/onchip_memory2_0.s1 baseAddress {0x8000}
+set_connection_parameter_value nios2_gen2_0.instruction_master/onchip_memory2_0.s1 baseAddress {0x4000}
 set_connection_parameter_value nios2_gen2_0.instruction_master/onchip_memory2_0.s1 defaultConnection {0}
 
 add_connection nios2_gen2_0.irq jtag_uart_0.irq
