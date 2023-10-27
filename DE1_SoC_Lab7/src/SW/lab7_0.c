@@ -35,7 +35,6 @@ uint32 * Inferred_ram_be_ptr = (uint32*) INFERRED_RAM_BE_0_BASE;
 void uint32_ram_test(uint32 * start ,uint32 size, uint32 data);
 void uint16_ram_test(uint16 * start ,uint32 size, uint16 data);
 void uint8_ram_test (uint8 *  start ,uint32 size, uint8 data);
-void jtag_display   (uint8* prompt, uint32 count);
 
 int main(void)
 /*****************************************************************************/
@@ -46,18 +45,19 @@ int main(void)
     *Led_0_ptr = 0x00;
     uint8 flag = 0x00;
 
-    while(key_0_1 == (flag |key_0_1))
+    while(key_0_1 != ( key_0_1 & flag))
     {
-    	uint32_ram_test((uint32*)Inferred_ram_be_ptr,(uint32)ram_size,(uint32)data_32);
-    	uint16_ram_test((uint16*)Inferred_ram_be_ptr,(uint32)ram_size,(uint16)data_16);
-    	uint8_ram_test ((uint8 *)Inferred_ram_be_ptr,(uint32)ram_size,(uint8 )data_8);
-
-    	if( key_0_1 == (KEY_0_BASE| key_0_1))
-    	{
-    		flag |= key_0_1;
-    		printf("RAM TEXT OVER \n");
-    	}
+        uint32_ram_test((uint32*)Inferred_ram_be_ptr,(uint32)ram_size,(uint32)data_32);
+        uint16_ram_test((uint16*)Inferred_ram_be_ptr,(uint32)ram_size,(uint16)data_16);
+        uint8_ram_test ((uint8 *)Inferred_ram_be_ptr,(uint32)ram_size,(uint8 )data_8);
+  
+        if( key_0_1 == (~(*Key_0_ptr) & key_0_1))
+        {
+            flag |= key_0_1;
+        }
     }
+
+    printf("RAM TEXT OVER \n");
 
     while(1);
 
@@ -79,7 +79,7 @@ void uint32_ram_test(uint32 * start_ptr ,uint32 size, uint32 data)
     {
         if (start_ptr[i] != data)
         {
-        	printf("ERROR : Address : %08lx : Read : %08lx : Expected : %08lx \n",(void*)&start_ptr[i], start_ptr[i],data);
+            printf("ERROR : Address : %08lx : Read : %08lx : Expected : %08lx \n",(void*)&start_ptr[i], start_ptr[i],data);
             *Led_0_ptr |= 0xFF;
         };
     }
@@ -100,7 +100,7 @@ void uint16_ram_test(uint16 * start_ptr ,uint32 size, uint16 data)
     {
         if (start_ptr[i] != data)
         {
-        	printf("ERROR : Address : %08lx : Read : %04x : Expected : %04x \n",(void*)&start_ptr[i], start_ptr[i],data);
+            printf("ERROR : Address : %08lx : Read : %04x : Expected : %04x \n",(void*)&start_ptr[i], start_ptr[i],data);
             *Led_0_ptr |= 0xFF;
         };
     }
@@ -117,7 +117,7 @@ void uint8_ram_test(uint8 * start_ptr ,uint32 size, uint8 data)
     {
         if (start_ptr[i] != data)
         {
-        	printf("ERROR : Address : %08lx : Read : %x : Expected : %x \n",(void*)&start_ptr[i], start_ptr[i],data);
+            printf("ERROR : Address : %08lx : Read : %x : Expected : %x \n",(void*)&start_ptr[i], start_ptr[i],data);
             *Led_0_ptr = 0xff;
         };
     }
