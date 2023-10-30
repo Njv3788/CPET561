@@ -65,6 +65,7 @@ int main(void)
     }
 
     printf("RAM TEXT OVER \n");
+    *Led_0_ptr = 0xAA;
     while(1);
 
     return 0;

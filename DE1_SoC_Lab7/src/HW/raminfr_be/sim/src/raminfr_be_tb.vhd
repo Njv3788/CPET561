@@ -40,9 +40,9 @@ architecture arch of raminfr_be_tb is
   constant uint16_test_words  :test_words_type := (x"00000000",x"00000000",x"12340000",x"00001234");
   constant uint08_test_words  :test_words_type := (x"00000000",x"00000000",x"00000000",x"00000000");
   
-  constant uint32_mask        :test_words_type := (x"00000000",x"00000000",x"00000000",x"FFFFFFFF");
-  constant uint16_mask        :test_words_type := (x"00000000",x"00000000",x"FFFF0000",x"0000FFFF");
-  constant uint08_mask        :test_words_type := (x"FF000000",x"00FF0000",x"0000FF00",x"000000FF");
+  constant uint32_check       :test_words_type := (x"00000000",x"00000000",x"00000000",x"ABCDEF90");
+  constant uint16_check       :test_words_type := (x"00000000",x"00000000",x"12341234",x"ABCD1234");
+  constant uint08_check       :test_words_type := (x"00000000",x"12000000",x"12340000",x"12341200");
   
   constant write_disable        :std_logic_vector( 3 DOWNTO 0) := "1111";
   constant uint32_write_enable  :write_enable_type := ("1111","1111","1111","0000");
@@ -76,11 +76,11 @@ begin
         writebyteenable_n  <= uint32_write_enable(j);
         writedata          <= uint32_test_words(j);
         wait for period;
-        check := uint32_mask(j) and readdata;
-        if(not(uint32_test_words(j) = check))THEN
+        check := readdata;
+        if(not(uint32_check(j) = check))THEN
           flag(0) <= '1';
           report "Ram test failure" & CR &
-                 "Expected : " &  to_hstring(uint32_test_words(j)) & CR &
+                 "Expected : " &  to_hstring(uint32_check(j)) & CR &
                  "Actual   : " &  to_hstring(check) & CR;
         end if; 
         DONE <= '0';
@@ -94,11 +94,11 @@ begin
         writebyteenable_n  <= uint16_write_enable(j);
         writedata          <= uint16_test_words(j);
         wait for period;
-        check := uint16_mask(j) and readdata;
-        if(not(check = uint16_test_words(j)))THEN
+        check := readdata;
+        if(not(check = uint16_check(j)))THEN
           flag(1) <= '1';
           report "Ram test failure" & CR &
-                 "Expected : " &  to_hstring(uint16_test_words(j)) & CR &
+                 "Expected : " &  to_hstring(uint16_check(j)) & CR &
                  "Actual   : " &  to_hstring(check) & CR;
         end if;
         DONE <= '0';
@@ -112,11 +112,11 @@ begin
         writebyteenable_n  <= uint08_write_enable(j);
         writedata          <= uint08_test_words(j);
         wait for period;
-        check := uint08_mask(j) and readdata;
-        if(not(check = uint08_test_words(j)))THEN
+        check := readdata;
+        if(not(check = uint08_check(j)))THEN
           flag(2) <= '1';
           report "Ram test failure" & CR &
-                 "Expected : " &  to_hstring(uint08_test_words(j)) & CR &
+                 "Expected : " &  to_hstring(uint08_check(j)) & CR &
                  "Actual   : " &  to_hstring(check) & CR;
         end if;
         DONE <= '0';
