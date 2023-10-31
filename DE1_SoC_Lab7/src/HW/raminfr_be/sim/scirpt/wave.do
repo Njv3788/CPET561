@@ -10,6 +10,10 @@ add wave -noupdate                    /raminfr_be_tb/readdata
 add wave -noupdate                    /raminfr_be_tb/stimulus/check
 add wave -noupdate                    /raminfr_be_tb/DONE
 add wave -noupdate                    /raminfr_be_tb/flag
+add wave -noupdate                    /raminfr_be_tb/uut/ram_4bytes(0)/ram_block/RAM
+add wave -noupdate                    /raminfr_be_tb/uut/ram_4bytes(1)/ram_block/RAM
+add wave -noupdate                    /raminfr_be_tb/uut/ram_4bytes(2)/ram_block/RAM
+add wave -noupdate                    /raminfr_be_tb/uut/ram_4bytes(3)/ram_block/RAM
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {887 ns} 0}
