@@ -1,0 +1,49 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY TimeQuest_Demo IS
+  PORT(
+    CLOCK_50   : IN  std_logic;                     -- 50 Mhz system clock
+    reset_n    : IN  std_logic;                     -- active low system reset
+    a          : IN  std_logic_vector(15 downto 0); --
+    b          : IN  std_logic_vector(15 downto 0); --
+    result     : OUT std_logic_vector(15 downto 0) -- 
+    );
+END ENTITY TimeQuest_Demo;
+
+ARCHITECTURE rtl OF TimeQuest_Demo IS
+  SIGNAL a_sync     :std_logic_vector(15 downto 0); --
+  SIGNAL b_sync     :std_logic_vector(15 downto 0); --
+  SIGNAL r_sync     :std_logic_vector(16 downto 0); --
+BEGIN
+  r_sync  <= std_logic_vector(unsigned('0' & a_sync) + unsigned('0' & b_sync));
+  
+  a_reg : process(CLOCK_50, reset_n)
+  begin
+    if(reset_n = '0') then
+      a_sync <= (others =>'0');
+    elsif(rising_edge(CLOCK_50)) then
+      a_sync <= a;
+    end if;
+  end process;
+  
+  b_reg : process(CLOCK_50, reset_n)
+  begin
+    if(reset_n = '0') then 
+      b_sync <= (others =>'0');
+    elsif(rising_edge(CLOCK_50)) then 
+      b_sync <= b;
+    end if;
+  end process;
+  
+  r_reg : process(CLOCK_50, reset_n)
+  begin
+    if(reset_n = '0') then 
+      result <= (others =>'0');
+    elsif(rising_edge(CLOCK_50)) then
+      result <= r_sync(15 downto 0);
+    end if;
+  end process;
+END ARCHITECTURE rtl;         
