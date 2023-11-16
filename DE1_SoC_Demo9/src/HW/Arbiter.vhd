@@ -85,12 +85,22 @@ signal ram_address_int : STD_LOGIC_VECTOR (10 DOWNTO 0);
 signal ram_data_int 	 : STD_LOGIC_VECTOR (15 DOWNTO 0);
 signal ram_wren_int	 : STD_LOGIC;
 signal ram_q_int		 : STD_LOGIC_VECTOR (15 DOWNTO 0);
-	
+
+signal cntr : STD_LOGIC_VECTOR (7 DOWNTO 0);
 begin
 
 -- create a signal to indicate which bridge has been enabled
 bus_enable_both <= cpu_0_bus_enable & cpu_1_bus_enable;
-
+-------------------------------------------------------------------------------
+--                         Counter                                           --
+-------------------------------------------------------------------------------
+counter_proc : process (clk,reset_n) begin
+    if (reset_n = '0') then
+      cntr <= x"00";
+    elsif (rising_edge(clk)) then
+      cntr <= cntr + (x"01");
+    end if;
+  end process counter_proc;
 -------------------------------------------------------------------------------
 --                         Finite State Machine                              --
 -------------------------------------------------------------------------------
@@ -105,7 +115,7 @@ sync: process(clk,reset_n)
 -------------------------------------------------------------------------------
 --                            Combinational Logic                            --
 -------------------------------------------------------------------------------
-comb: process(current_state,bus_enable_both,bus_enable)
+comb: process(current_state,bus_enable_both,bus_enable,cntr)
   begin
     case(current_state) is
       when idle =>
@@ -114,10 +124,12 @@ comb: process(current_state,bus_enable_both,bus_enable)
             next_state <= CPU_0;
           when "01" =>
             next_state <= CPU_1;
-          when "11" =>  
-		  --Need to arbitrate here
-		  --Determine an arbitration scheme so that the two processors are fairly
-		  --       given access to the bus          
+          when "11" =>
+            if (cntr(5) = '0') then
+              next_state <= CPU_0;
+            else
+              next_state <= CPU_1;
+            end if;
           when others =>
               next_state <= IDLE;
           end case;
@@ -139,6 +151,7 @@ comb: process(current_state,bus_enable_both,bus_enable)
   end process;
 
   
+
  --this process assigns all of the signals based on which bridge is selected
  --Note - it is not the best coding style to use one process for all the 
  --  outputs (j. christman)

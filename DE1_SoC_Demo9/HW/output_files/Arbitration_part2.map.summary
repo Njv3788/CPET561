@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue Nov 14 16:18:11 2023
-Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Analysis & Synthesis Status : Successful - Wed Nov 15 22:24:02 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : Arbitration_part2
 Top-level Entity Name : Arbitration_part2
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 1933
+Total registers : 1938
 Total pins : 5
 Total virtual pins : 0
 Total block memory bits : 317,440
