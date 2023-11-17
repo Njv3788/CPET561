@@ -48,8 +48,15 @@ ARCHITECTURE rtl OF filter_base_16_tap IS
   
   signal preset              :std_logic_vector(bit_depth-1 DOWNTO 0):= (others => '0');
   signal register_q          :filter_signal := (others => x"0000");
-  signal add_q               :filter_signal;
-  signal multiplier_q        :MULT_signal;
+  signal add_q               :filter_signal := (others => x"0000");
+  signal multiplier_q        :MULT_signal := (others => x"00000000");
+  signal mov_avg             :filter_signal := (others => x"0788");
+  signal low_pass            :filter_signal := (x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",
+                                                x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",
+                                                x"0788");
+  signal high_pass           :filter_signal := (x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",
+                                                x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",x"0788",
+                                                x"0788");
 BEGIN
   register_q(0) <= data_in;
   data_out <= add_q(16);
@@ -73,7 +80,7 @@ BEGIN
   multiplier : for i in 0 to FIR_size generate
     multi : MULT
       port map(
-        dataa    => x"0788",
+        dataa    => mov_avg(i),
         datab    => register_q(i),
         result   => multiplier_q(i)
       );

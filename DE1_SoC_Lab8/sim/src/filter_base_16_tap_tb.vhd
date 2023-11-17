@@ -1,7 +1,3 @@
--------------------------------------------------------------------------------
--- Dr. Kaputa
--- dj roomba 3000 test bench
--------------------------------------------------------------------------------
 library ieee;
 use STD.textio.all;
 use ieee.std_logic_1164.all;
@@ -32,7 +28,7 @@ architecture arch of filter_base_16_tap_tb is
   signal clk              : std_logic := '0';
   signal reset            : std_logic := '1';
   signal filter_en        : std_logic := '0';
-  signal data_in          : std_logic_vector(15 downto 0);
+  signal data_in          : std_logic_vector(15 downto 0) := (others =>'0');
   signal data_out         : std_logic_vector(15 downto 0);
   signal audioSampleArray : cycle_array;
 begin
@@ -67,8 +63,10 @@ begin
   -- main test process
   
   stimulus : process is 
-    file read_file : text open read_mode is "./src/one_cycle_200_8k.csv";
-    file results_file : text open write_mode is "./src/output_waveform.csv";
+    file read_file : text open read_mode is "../src/one_cycle_200_8k.csv";
+    file results_file : text open write_mode is "../src/mov_average.csv";
+--  file results_file : text open write_mode is "../src/low_pass.csv";
+--  file results_file : text open write_mode is "../src/high_pass.csv";
     variable lineIn : line;
     variable lineOut : line;
     variable readValue : integer;
@@ -88,27 +86,27 @@ begin
     -- Apply the test data and put the result into an output file
     for i in 1 to 10 loop
       for j in 0 to 39 loop
-      
-      -- Your code here...
-      -- Read the data from the array and apply it to Data_In
-      -- Remember to provide an enable pulse with each new sample
-      data_in <= audioSampleArray(j);
-      filter_en <= '1';
-      wait for period;
-      
-      -- Write filter output to file
-      writeValue := to_integer(unsigned(data_out));
-      write(lineOut, writeValue);
-      writeline(results_file, lineOut);
-      
-      -- Your code here...
-      filter_en <= '0';
-      wait for period;
+        -- Your code here...
+        -- Read the data from the array and apply it to Data_In
+        -- Remember to provide an enable pulse with each new sample
+        data_in <= audioSampleArray(j);
+        filter_en <= '1';
+        wait for period;
+        
+        -- Write filter output to file
+        writeValue := to_integer(signed(data_out));
+        write(lineOut, writeValue);
+        writeline(results_file, lineOut);
+        
+        -- Your code here...
+        filter_en <= '0';
+        wait for period;
       end loop;
     end loop;
     file_close(results_file);
     -- end simulation
     wait for 100 ns;
+    report "--------------------------ENDED---------------------------------";
     -- last wait statement needs to be here to prevent the process
     -- sequence from restarting at the beginning
     wait;

@@ -1,49 +1,15 @@
 onerror {resume}
-radix define Display {
-    "7'b1000000" "0"     -color "yellow",
-    "7'b1111001" "1"     -color "yellow",
-    "7'b0100100" "2"     -color "yellow",
-    "7'b0110000" "3"     -color "yellow",
-    "7'b0011001" "4"     -color "yellow",
-    "7'b0010010" "5"     -color "yellow",
-    "7'b0000010" "6"     -color "yellow",
-    "7'b1111000" "7"     -color "yellow",
-    "7'b0000000" "8"     -color "yellow",
-    "7'b0011000" "9"     -color "yellow",
-    "7'b0001000" "A"     -color "yellow",
-    "7'b0000011" "B"     -color "yellow",
-    "7'b1000110" "C"     -color "yellow",
-    "7'b0100001" "D"     -color "yellow",
-    "7'b0000110" "E"     -color "yellow",
-    "7'b0001110" "F"     -color "yellow",
-    "7'b1111111" "blank" -color "yellow",
-    -default default         yellow
-}
-
-radix define state  {
-    "5'b00001" "IDLE"          -color "orange",
-    "5'b00010" "SWEEP_RIGHT"   -color "orange",
-    "5'b00100" "INT_RIGHT"     -color "orange",
-    "5'b01000" "SWEEP_LEFT"    -color "orange",
-    "5'b10000" "INT_LEFT"      -color "orange",
-    -default default         orange
-}
 
 quietly WaveActivateNextPane {} 0
-add wave -noupdate                    /servo_controller_tb/clk
-add wave -noupdate                    /servo_controller_tb/reset
-add wave -noupdate                    /servo_controller_tb/address
-add wave -noupdate                    /servo_controller_tb/write
-add wave -noupdate                    /servo_controller_tb/irq
-add wave -noupdate -radix hexadecimal /servo_controller_tb/writedata
-add wave -noupdate -radix hexadecimal /servo_controller_tb/uut/ram/Registers
-add wave -noupdate -radix state       /servo_controller_tb/uut/fsm/current_states
-add wave -noupdate -radix state       /servo_controller_tb/uut/fsm/next_states
-add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/count_sig
-add wave -noupdate -radix decimal     /servo_controller_tb/uut/fsm/angle_count
-add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/pulse_width
-add wave -noupdate -radix decimal     /servo_controller_tb/uut/period_cnt/pwm
-
+add wave -noupdate                    /filter_base_16_tap_tb/uut/clk
+add wave -noupdate                    /filter_base_16_tap_tb/uut/reset
+add wave -noupdate                    /filter_base_16_tap_tb/uut/filter_en
+add wave -noupdate                    /filter_base_16_tap_tb/uut/data_in
+add wave -noupdate                    /filter_base_16_tap_tb/uut/data_out
+add wave -noupdate                    /filter_base_16_tap_tb/uut/register_q
+add wave -noupdate                    /filter_base_16_tap_tb/uut/add_q
+add wave -noupdate                    /filter_base_16_tap_tb/uut/multiplier_q
+add wave -noupdate                    /filter_base_16_tap_tb/audioSampleArray
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {887 ns} 0}
