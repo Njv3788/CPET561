@@ -8,13 +8,16 @@ ENTITY lab8_top IS
   PORT(
     CLOCK_50         : IN  std_logic;                      -- 50 Mhz system clock
     KEY              : IN  std_logic_vector( 3 downto 0); 
-    filter_en        : IN  std_logic;
-    data_in          : IN  std_logic_vector(15 downto 0);
-    data_out         : OUT std_logic_vector(15 downto 0)
+    write            : IN  std_logic;
+    address          : IN  std_logic_vector(0 downto 0);
+    writedata        : IN  std_logic_vector(31 downto 0);
+    readdata         : OUT std_logic_vector(31 downto 0)
   );
 END ENTITY lab8_top;
 
 ARCHITECTURE rtl OF lab8_top IS
+  TYPE registers is array (1 DOWNTO 0) of std_logic_vector(31 downto 0);
+  
   COMPONENT filter_base_16_tap IS
     GENERIC(
       bit_depth        :integer := 16
@@ -23,20 +26,51 @@ ARCHITECTURE rtl OF lab8_top IS
       clk              : IN  std_logic;                      -- 50 Mhz system clock
       reset            : IN  std_logic; 
       filter_en        : IN  std_logic;
+      filter_type      : IN  std_logic_vector(1 downto 0);
       data_in          : IN  std_logic_vector(bit_depth-1 downto 0);
       data_out         : OUT std_logic_vector(bit_depth-1 downto 0)
     );
   END COMPONENT filter_base_16_tap;
+  
+  signal memory        : registers := (others => x"00000000");
+  signal filter_type   : std_logic_vector( 1 downto 0);
+  signal data_in       : std_logic_vector(15 downto 0);
+  signal data_out      : std_logic_vector(15 downto 0);
+  signal enable        : std_logic;
 BEGIN
+  readdata(31 downto 16) <= x"0000";
+  readdata(15 downto 0) <= data_out;
+  data_in <= memory(0) (15 downto 0);
+  filter_type <= memory(1)(1 downto 0);
 
- filter : filter_base_16_tap
+  reg_process : process (CLOCK_50,KEY)
+  begin
+    if (KEY(0) = '0') then
+      memory <= (others => x"00000000");
+    elsif (rising_edge(CLOCK_50))then
+      if (write = '1') then
+        memory(to_integer(unsigned(address))) <= writedata;
+      end if;
+    end if;
+  end process;
+
+  en_process : process (enable,write)
+  begin
+    case (address) is 
+      when "0"    => enable <= write;
+      when others => enable <= '0';
+    end case;
+  end process;
+
+  filter : filter_base_16_tap
     generic map(
       bit_depth  => 16
     )
     port map(
       clk              => CLOCK_50,                     -- 50 Mhz system clock
       reset            => KEY(0), 
-      filter_en        => filter_en,
+      filter_en        => enable,
+      filter_type      => filter_type,
       data_in          => data_in,
       data_out         => data_out
     );

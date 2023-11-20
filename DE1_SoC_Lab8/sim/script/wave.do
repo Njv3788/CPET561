@@ -1,15 +1,15 @@
 onerror {resume}
 
 quietly WaveActivateNextPane {} 0
-add wave -noupdate                    /filter_base_16_tap_tb/uut/clk
-add wave -noupdate                    /filter_base_16_tap_tb/uut/reset
-add wave -noupdate                    /filter_base_16_tap_tb/uut/filter_en
-add wave -noupdate                    /filter_base_16_tap_tb/uut/data_in
-add wave -noupdate                    /filter_base_16_tap_tb/uut/data_out
-add wave -noupdate                    /filter_base_16_tap_tb/uut/register_q
-add wave -noupdate                    /filter_base_16_tap_tb/uut/add_q
-add wave -noupdate                    /filter_base_16_tap_tb/uut/multiplier_q
-add wave -noupdate                    /filter_base_16_tap_tb/audioSampleArray
+add wave -noupdate                    /Lab8_tb/uut/filter/clk
+add wave -noupdate                    /Lab8_tb/uut/filter/reset
+add wave -noupdate                    /Lab8_tb/uut/filter/filter_en
+add wave -noupdate                    /Lab8_tb/uut/filter/data_in
+add wave -noupdate                    /Lab8_tb/uut/filter/data_out
+add wave -noupdate                    /Lab8_tb/uut/filter/register_q
+add wave -noupdate                    /Lab8_tb/uut/filter/add_q
+add wave -noupdate                    /Lab8_tb/uut/filter/multiplier_q
+add wave -noupdate                    /Lab8_tb/audioSampleArray
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {887 ns} 0}
