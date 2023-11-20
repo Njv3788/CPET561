@@ -70,7 +70,7 @@ BEGIN
   data_out <= add_q(16);
   add_q(0) <= multiplier_q(0)(30 downto 15);
   
-  coeff_mux : process (filter_type) 
+  coeff_mux : process (filter_type,coeff_q) 
   begin 
     case(filter_type) is
       when "00"    => coeff_q <= bypass;

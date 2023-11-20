@@ -4,12 +4,14 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate                    /Lab8_tb/uut/filter/clk
 add wave -noupdate                    /Lab8_tb/uut/filter/reset
 add wave -noupdate                    /Lab8_tb/uut/filter/filter_en
-add wave -noupdate                    /Lab8_tb/uut/filter/data_in
-add wave -noupdate                    /Lab8_tb/uut/filter/data_out
-add wave -noupdate                    /Lab8_tb/uut/filter/register_q
-add wave -noupdate                    /Lab8_tb/uut/filter/add_q
-add wave -noupdate                    /Lab8_tb/uut/filter/multiplier_q
-add wave -noupdate                    /Lab8_tb/audioSampleArray
+add wave -noupdate                    /Lab8_tb/uut/filter/filter_type
+add wave -noupdate                    /Lab8_tb/uut/memory
+add wave -noupdate                    /Lab8_tb/uut/filter_type
+add wave -noupdate                    /Lab8_tb/uut/filter/coeff_q
+add wave -noupdate                    /Lab8_tb/uut/filter/bypass
+add wave -noupdate                    /Lab8_tb/uut/filter/low_pass
+add wave -noupdate                    /Lab8_tb/uut/filter/high_pass
+add wave -noupdate                    /Lab8_tb/uut/filter/mov_avg
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {887 ns} 0}

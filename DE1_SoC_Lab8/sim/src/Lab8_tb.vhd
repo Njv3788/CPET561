@@ -10,6 +10,7 @@ end Lab8_tb;
 architecture arch of Lab8_tb is
   
   TYPE cycle_array is array (39 DOWNTO 0) of std_logic_vector(15 downto 0);
+  TYPE registers is array (3 DOWNTO 0) of std_logic_vector(31 downto 0);
   
   COMPONENT lab8_top IS
     PORT(
@@ -31,6 +32,7 @@ architecture arch of Lab8_tb is
   signal readdata         : std_logic_vector(31 downto 0);
   signal audioSampleArray : cycle_array := (others => x"0000");
   signal KEY              : std_logic_vector( 3 downto 0) := "000" & reset;
+  signal mode             : registers := (x"00000003",x"00000002",x"00000001",x"00000000");
 begin
 
   uut : lab8_top
@@ -62,10 +64,7 @@ begin
   
   stimulus : process is 
     file read_file : text open read_mode is "../src/one_cycle_200_8k.csv";
-    file results_file : text open write_mode is "../src/bypass.csv";
---  file results_file : text open write_mode is "../src/mov_average.csv";
---  file results_file : text open write_mode is "../src/low_pass.csv";
---  file results_file : text open write_mode is "../src/high_pass.csv";
+    file results_file : text open write_mode is "../src/component_design.csv";
     variable lineIn : line;
     variable lineOut : line;
     variable readValue : integer;
@@ -81,25 +80,32 @@ begin
       wait for 3 * period;
     end loop;
     file_close(read_file);
-    
-    -- Apply the test data and put the result into an output file
-    for i in 1 to 10 loop
-      for j in 0 to 39 loop
-        -- Your code here...
-        -- Read the data from the array and apply it to Data_In
-        -- Remember to provide an enable pulse with each new sample
-        writedata <= x"0000" & audioSampleArray(j);
-        write_s <= '1';
-        wait for period;
-        
-        -- Write filter output to file
-        writeValue := to_integer(signed(readdata(15 downto 0)));
-        write(lineOut, writeValue);
-        writeline(results_file, lineOut);
-        
-        -- Your code here...
-        write_s <= '0';
-        wait for period;
+    for k in 0 to 3 loop
+      address <= "1";
+      writedata <= mode(k);
+      write_s <= '1';
+      wait for period;
+      write_s <= '0';
+      address <= "0";
+      -- Apply the test data and put the result into an output file
+      for i in 1 to 10 loop
+        for j in 0 to 39 loop
+          -- Your code here...
+          -- Read the data from the array and apply it to Data_In
+          -- Remember to provide an enable pulse with each new sample
+          writedata <= x"0000" & audioSampleArray(j);
+          write_s <= '1';
+          wait for period;
+          
+          -- Write filter output to file
+          writeValue := to_integer(signed(readdata(15 downto 0)));
+          write(lineOut, writeValue);
+          writeline(results_file, lineOut);
+          
+          -- Your code here...
+          write_s <= '0';
+          wait for period;
+        end loop;
       end loop;
     end loop;
     file_close(results_file);

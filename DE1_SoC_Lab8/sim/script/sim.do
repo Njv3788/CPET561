@@ -6,4 +6,4 @@ vcom -93 -work work ../../src/HW/lab8_top.vhd
 vcom -93 -work work ../src/Lab8_tb.vhd
 vsim -voptargs=+acc Lab8_tb
 do wave.do
-run 20000 ns
+run 80000 ns
