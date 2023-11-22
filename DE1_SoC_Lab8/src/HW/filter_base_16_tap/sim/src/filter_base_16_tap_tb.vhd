@@ -29,7 +29,7 @@ architecture arch of filter_base_16_tap_tb is
   signal clk              : std_logic := '0';
   signal reset            : std_logic := '1';
   signal filter_en        : std_logic := '0';
-  signal filter_type      : std_logic_vector(1 downto 0):= "00";
+  signal filter_type      : std_logic_vector(1 downto 0):= "10";
   signal data_in          : std_logic_vector(15 downto 0) := (others =>'0');
   signal data_out         : std_logic_vector(15 downto 0);
   signal audioSampleArray : cycle_array;
@@ -67,10 +67,10 @@ begin
   
   stimulus : process is 
     file read_file : text open read_mode is "../src/one_cycle_200_8k.csv";
-    file results_file : text open write_mode is "../src/bypass.csv";
+--  file results_file : text open write_mode is "../src/bypass.csv";
 --  file results_file : text open write_mode is "../src/mov_average.csv";
 --  file results_file : text open write_mode is "../src/low_pass.csv";
---  file results_file : text open write_mode is "../src/high_pass.csv";
+    file results_file : text open write_mode is "../src/high_pass.csv";
     variable lineIn : line;
     variable lineOut : line;
     variable readValue : integer;

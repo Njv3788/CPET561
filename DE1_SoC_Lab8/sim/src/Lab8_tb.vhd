@@ -10,7 +10,7 @@ end Lab8_tb;
 architecture arch of Lab8_tb is
   
   TYPE cycle_array is array (39 DOWNTO 0) of std_logic_vector(15 downto 0);
-  TYPE registers is array (3 DOWNTO 0) of std_logic_vector(31 downto 0);
+  TYPE registers is array (3 DOWNTO 0) of std_logic_vector(15 downto 0);
   
   COMPONENT lab8_top IS
     PORT(
@@ -18,8 +18,8 @@ architecture arch of Lab8_tb is
       KEY              : IN  std_logic_vector( 3 downto 0); 
       write            : IN  std_logic;
       address          : IN  std_logic_vector(0 downto 0);
-      writedata        : IN  std_logic_vector(31 downto 0);
-      readdata         : OUT std_logic_vector(31 downto 0)
+      writedata        : IN  std_logic_vector(15 downto 0);
+      readdata         : OUT std_logic_vector(15 downto 0)
     );
   END COMPONENT lab8_top;
   
@@ -28,11 +28,11 @@ architecture arch of Lab8_tb is
   signal reset            : std_logic := '1';
   signal write_s          : std_logic := '0';
   signal address          : std_logic_vector(0 downto 0):= "0";
-  signal writedata        : std_logic_vector(31 downto 0) := (others =>'0');
-  signal readdata         : std_logic_vector(31 downto 0);
+  signal writedata        : std_logic_vector(15 downto 0) := (others =>'0');
+  signal readdata         : std_logic_vector(15 downto 0);
   signal audioSampleArray : cycle_array := (others => x"0000");
   signal KEY              : std_logic_vector( 3 downto 0) := "000" & reset;
-  signal mode             : registers := (x"00000003",x"00000002",x"00000001",x"00000000");
+  signal mode             : registers := (x"0003",x"0002",x"0001",x"0000");
 begin
 
   uut : lab8_top
@@ -82,7 +82,7 @@ begin
     file_close(read_file);
     for k in 0 to 3 loop
       address <= "1";
-      writedata <= mode(k);
+      writedata <= mode(2);
       write_s <= '1';
       wait for period;
       write_s <= '0';
@@ -93,12 +93,12 @@ begin
           -- Your code here...
           -- Read the data from the array and apply it to Data_In
           -- Remember to provide an enable pulse with each new sample
-          writedata <= x"0000" & audioSampleArray(j);
+          writedata <= audioSampleArray(j);
           write_s <= '1';
           wait for period;
           
           -- Write filter output to file
-          writeValue := to_integer(signed(readdata(15 downto 0)));
+          writeValue := to_integer(signed(readdata));
           write(lineOut, writeValue);
           writeline(results_file, lineOut);
           
