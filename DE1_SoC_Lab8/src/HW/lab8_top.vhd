@@ -6,8 +6,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY lab8_top IS
   PORT(
-    CLOCK_50         : IN  std_logic;                      -- 50 Mhz system clock
-    KEY              : IN  std_logic_vector( 3 downto 0); 
+    clk             : IN  std_logic;                      -- 50 Mhz system clock
+    reset            : IN  std_logic; 
     write            : IN  std_logic;
     address          : IN  std_logic_vector(0 downto 0);
     writedata        : IN  std_logic_vector(15 downto 0);
@@ -36,11 +36,11 @@ ARCHITECTURE rtl OF lab8_top IS
   signal enable        : std_logic;
 BEGIN
 
-  reg_process : process (CLOCK_50,KEY)
+  reg_process : process (clk,reset)
   begin
-    if (KEY(0) = '0') then
+    if (reset = '1') then
       memory <= (others => x"0000");
-    elsif (rising_edge(CLOCK_50))then
+    elsif (rising_edge(clk))then
       if (write = '1') then
         memory(to_integer(unsigned(address))) <= writedata;
       end if;
@@ -60,8 +60,8 @@ BEGIN
       bit_depth  => 16
     )
     port map(
-      clk              => CLOCK_50,                     -- 50 Mhz system clock
-      reset            => KEY(0), 
+      clk              => clk,                     -- 50 Mhz system clock
+      reset            => reset, 
       filter_en        => enable,
       filter_type      => memory(1)(1 downto 0),
       data_in          => memory(0),

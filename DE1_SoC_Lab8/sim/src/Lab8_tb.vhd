@@ -14,8 +14,8 @@ architecture arch of Lab8_tb is
   
   COMPONENT lab8_top IS
     PORT(
-      CLOCK_50         : IN  std_logic;                      -- 50 Mhz system clock
-      KEY              : IN  std_logic_vector( 3 downto 0); 
+      clk              : IN  std_logic;                      -- 50 Mhz system clock
+      reset            : IN  std_logic; 
       write            : IN  std_logic;
       address          : IN  std_logic_vector(0 downto 0);
       writedata        : IN  std_logic_vector(15 downto 0);
@@ -31,14 +31,13 @@ architecture arch of Lab8_tb is
   signal writedata        : std_logic_vector(15 downto 0) := (others =>'0');
   signal readdata         : std_logic_vector(15 downto 0);
   signal audioSampleArray : cycle_array := (others => x"0000");
-  signal KEY              : std_logic_vector( 3 downto 0) := "000" & reset;
   signal mode             : registers := (x"0003",x"0002",x"0001",x"0000");
 begin
 
   uut : lab8_top
     port map(
-      CLOCK_50         => clk,                     -- 50 Mhz system clock
-      KEY              => KEY, 
+      clk              => clk,                     -- 50 Mhz system clock
+      reset            => reset, 
       write            => write_s,
       address          => address,
       writedata        => writedata,
@@ -82,7 +81,7 @@ begin
     file_close(read_file);
     for k in 0 to 3 loop
       address <= "1";
-      writedata <= mode(2);
+      writedata <= mode(k);
       write_s <= '1';
       wait for period;
       write_s <= '0';
